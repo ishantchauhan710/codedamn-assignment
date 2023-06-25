@@ -14,14 +14,11 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const { activeTab } = useAppContext();
   return (
-    <div>
-      <NavBar />
-      <div className="mx-2 sm:mx-4 md:mx-16 my-24">
-        <ProfileSection />
-        <CoursesTab />
-        {activeTab === "Portfolio" && <Portfolio />}
-        {activeTab === "Resume" && <Resume />}
-      </div>
+    <div className="mx-2 sm:mx-4 md:mx-24 my-24">
+      <ProfileSection />
+      <CoursesTab />
+      {activeTab === "Portfolio" && <Portfolio />}
+      {activeTab === "Resume" && <Resume />}
     </div>
   );
 }

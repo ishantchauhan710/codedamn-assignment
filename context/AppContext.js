@@ -3,8 +3,11 @@ const AppContext = createContext();
 
 export default function AppStore({ children }) {
   const [activeTab, setActiveTab] = useState("Portfolio");
+  const [activeProfileTab, setActiveProfileTab] = useState("Profile");
   return (
-    <AppContext.Provider value={{ activeTab, setActiveTab }}>
+    <AppContext.Provider
+      value={{ activeTab, setActiveTab, activeProfileTab, setActiveProfileTab }}
+    >
       {children}
     </AppContext.Provider>
   );
