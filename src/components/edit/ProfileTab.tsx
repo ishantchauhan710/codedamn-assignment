@@ -19,25 +19,27 @@ const ProfileTab = () => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center flex-col sm:flex-row">
         <Image
           src="/icons/avatars/avatar_plain.png"
           width={72}
           height={72}
           alt="profile"
         />
-        <button
-          onClick={() => alert("Contact")}
-          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md text-sm ml-4"
-        >
-          Upload new picture
-        </button>
-        <button
-          onClick={() => alert("Contact")}
-          className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md text-sm ml-2"
-        >
-          Delete
-        </button>
+        <div className="mt-4 sm:mt-0 flex">
+          <button
+            onClick={() => alert("Contact")}
+            className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md text-sm sm:ml-4"
+          >
+            Upload new picture
+          </button>
+          <button
+            onClick={() => alert("Contact")}
+            className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md text-sm ml-2"
+          >
+            Delete
+          </button>
+        </div>
       </div>
 
       <div>
