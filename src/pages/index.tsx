@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <div className="mx-12 mt-10">
+      <div className="mx-12 my-24">
         <ProfileSection />
         <CoursesTab />
         {activeTab === "Portfolio" && <Portfolio />}

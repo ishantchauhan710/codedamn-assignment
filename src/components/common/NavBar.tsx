@@ -22,14 +22,14 @@ const SearchField = () => {
         <Image src="/search.png" width={16} height={16} alt="search codedamn" />
       </div>
       <input
-        type="search"
+        type="text"
         id="default-search"
         className="block w-80 py-[6px] pl-10 pr-20 text-md text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
         placeholder="Search"
         required
       />
       <div
-        className="flex items-center justify-center bg-gray-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-smzzzz"
+        className="flex items-center justify-center bg-gray-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
         onClick={() => alert("Courses")}
       >
         <span className="mr-1">Courses</span>
@@ -47,7 +47,7 @@ const NavIcons = () => {
     >
       <div className="flex items-center justify-between mx-2 cursor-pointer">
         <Image src="/spark.png" width={20} height={20} alt="spark" />
-        <span className="font-semibold text-neutral-600 text-md ml-1">2</span>
+        <span className="font-semibold text-neutral-600 text-md ml-1 hover:text-neutral-900">2</span>
       </div>
 
       <div
@@ -60,13 +60,13 @@ const NavIcons = () => {
           height={24}
           alt="notifications"
         />
-        <div className="absolute bg-pink-700 rounded-full text-white text-sm font-semibold p-[1px] w-4 h-4 flex items-center justify-center inset-y-0 right-0 mt-[-7px] mr-[-4px] cursor-pointer">
+        <div className="absolute bg-pink-700 hover:bg-pink-600 rounded-full text-white text-sm font-semibold p-[1px] w-4 h-4 flex items-center justify-center inset-y-0 right-0 mt-[-7px] mr-[-4px] cursor-pointer">
           1
         </div>
       </div>
 
       <div
-        className="relative mx-2 cursor-pointer"
+        className="relative mx-2 cursor-pointer transition"
         onClick={() => alert("Profile")}
       >
         <Image src="/profile_user_small.png" width={40} height={40} alt="profile" />
@@ -77,7 +77,7 @@ const NavIcons = () => {
 
 const NavBar = () => {
   return (
-    <div className="flex items-center justify-end mx-5 my-3">
+    <div className="flex items-center justify-end px-5 py-4 fixed top-0 w-screen z-[20] bg-white shadow-md">
       <Logo />
       <SearchField />
       <NavIcons />

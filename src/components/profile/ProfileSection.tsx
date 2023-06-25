@@ -22,7 +22,7 @@ const ProfileSection = () => {
   ];
 
   return (
-    <div>
+    <div className="shadow-sm">
       <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-40 rounded-t-xl">
         <button className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4">
           <Image
@@ -42,7 +42,7 @@ const ProfileSection = () => {
             width={140}
             height={140}
             alt="location"
-            className="absolute mt-[-50px] ml-4"
+            className="absolute mt-[-50px] ml-4 cursor-pointer"
           />
         </div>
         <div className="flex-[0.82] m-4">
@@ -106,7 +106,7 @@ const ProfileSection = () => {
               </div>
               <button
                 onClick={() => alert("Contact")}
-                className="bg-primary-500 hover:bg-primary-600 text-white px-2 py-1.5 rounded-md"
+                className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md"
               >
                 Contact
               </button>

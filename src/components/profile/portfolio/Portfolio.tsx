@@ -1,147 +1,8 @@
+import { certificates, playgrounds, projects, stats } from "@/data";
 import Image from "next/image";
 import React from "react";
 
 const Portfolio = () => {
-  const stats = [
-    {
-      label: "Longest Streak",
-      value: "2",
-      icon: "/Lightning.png",
-    },
-    {
-      label: "Experience Points",
-      value: "1200",
-      icon: "/StarFour.png",
-    },
-    {
-      label: "Current League",
-      value: "Novice",
-      icon: "/cup.png",
-    },
-    {
-      label: "Karma Points",
-      value: "120",
-      icon: "/Heartbeat.png",
-    },
-  ];
-
-  const projects = [
-    {
-      title: "Personal Portfolio Website",
-      image: "/project_img.png",
-      skills: [
-        { name: "HTML/CSS", logo: "/html5.png" },
-        { name: "React", logo: "/react.png" },
-      ],
-    },
-    {
-      title: "Personal Portfolio Website",
-      image: "/project_img.png",
-      skills: [
-        { name: "HTML/CSS", logo: "/html5.png" },
-        { name: "React", logo: "/react.png" },
-      ],
-    },
-    {
-      title: "Personal Portfolio Website",
-      image: "/project_img.png",
-      skills: [
-        { name: "HTML/CSS", logo: "/html5.png" },
-        { name: "React", logo: "/react.png" },
-      ],
-    },
-    {
-      title: "Personal Portfolio Website",
-      image: "/project_img.png",
-      skills: [
-        { name: "HTML/CSS", logo: "/html5.png" },
-        { name: "React", logo: "/react.png" },
-      ],
-    },
-  ];
-
-  const playgrounds = [
-    {
-      title: "Playground title",
-      language: "HTML/CSS",
-      time: "1min ago",
-      logo: "/html5big.png",
-      sharedWith: [
-        { name: "Adam", pic: "/dummyuser1.png" },
-        { name: "Anna", pic: "/dummyuser2.png" },
-        { name: "Ishant", pic: "/dummyuser1.png" },
-        { name: "Adam", pic: "/dummyuser2.png" },
-        { name: "Anna", pic: "/dummyuser1.png" },
-        { name: "Ishant", pic: "/dummyuser2.png" },
-      ],
-    },
-    {
-      title: "Playground title",
-      language: "HTML/CSS",
-      time: "1min ago",
-      logo: "/html5big.png",
-      sharedWith: [
-        { name: "Adam", pic: "/dummyuser1.png" },
-        { name: "Anna", pic: "/dummyuser2.png" },
-        { name: "Ishant", pic: "/dummyuser1.png" },
-        { name: "Adam", pic: "/dummyuser2.png" },
-        { name: "Anna", pic: "/dummyuser1.png" },
-        { name: "Ishant", pic: "/dummyuser2.png" },
-      ],
-    },
-    {
-      title: "Playground title",
-      language: "HTML/CSS",
-      time: "1min ago",
-      logo: "/html5big.png",
-      sharedWith: [
-        { name: "Adam", pic: "/dummyuser1.png" },
-        { name: "Anna", pic: "/dummyuser2.png" },
-        { name: "Ishant", pic: "/dummyuser1.png" },
-        { name: "Adam", pic: "/dummyuser2.png" },
-        { name: "Anna", pic: "/dummyuser1.png" },
-        { name: "Ishant", pic: "/dummyuser2.png" },
-      ],
-    },
-    {
-      title: "Playground title",
-      language: "HTML/CSS",
-      time: "1min ago",
-      logo: "/html5big.png",
-      sharedWith: [
-        { name: "Adam", pic: "/dummyuser1.png" },
-        { name: "Anna", pic: "/dummyuser2.png" },
-        { name: "Ishant", pic: "/dummyuser1.png" },
-        { name: "Adam", pic: "/dummyuser2.png" },
-        { name: "Anna", pic: "/dummyuser1.png" },
-        { name: "Ishant", pic: "/dummyuser2.png" },
-      ],
-    },
-  ];
-
-  const certificates = [
-    {
-      title: "Advanced theoritical Javascript",
-      issuedDate: "Dec 16th, 2022",
-      logo: "/javascriptbig.png",
-    },
-    {
-      title: "Advanced theoritical Javascript",
-      issuedDate: "Dec 16th, 2022",
-      logo: "/javascriptbig.png",
-    },
-    {
-      title: "Advanced theoritical Javascript",
-      issuedDate: "Dec 16th, 2022",
-      logo: "/javascriptbig.png",
-    },
-    {
-      title: "Advanced theoritical Javascript",
-      issuedDate: "Dec 16th, 2022",
-      logo: "/javascriptbig.png",
-    },
-  ];
-
   return (
     <div>
       {/* STATS */}
@@ -151,7 +12,7 @@ const Portfolio = () => {
           {stats.map((stat, i) => (
             <div
               key={stat.label + stat.value}
-              className="bg-neutral-200/40  text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
+              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
             >
               <Image src={stat.icon} width={32} height={32} alt={stat.label} />
               <div className="flex flex-col ml-1">
@@ -175,14 +36,22 @@ const Portfolio = () => {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className="bg-neutral-100 text-gray-800 cursor-pointer p-4 text-sm rounded-md"
+              className="bg-neutral-100 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-4 text-sm rounded-md"
             >
-              <Image
-                src={project.image}
-                width={1000}
-                height={1000}
-                alt={project.title}
-              />
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "250px",
+                }}
+              >
+                <Image
+                  fill
+                  src={project.image}
+                  alt={project.title}
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
 
               <div className="text-neutral-900 font-semibold text-lg mt-2">
                 {project.title}
@@ -219,7 +88,7 @@ const Portfolio = () => {
           {playgrounds.map((playground) => (
             <div
               key={playground.title}
-              className="bg-neutral-200/40  text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start"
+              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start"
             >
               <Image
                 src={playground.logo}
@@ -280,7 +149,7 @@ const Portfolio = () => {
           {certificates.map((certificate) => (
             <div
               key={certificate.title}
-              className="bg-neutral-200/40  text-gray-800 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
+              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
             >
               <Image
                 src={certificate.logo}
