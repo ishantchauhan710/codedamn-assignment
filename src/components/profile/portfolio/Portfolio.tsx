@@ -1,8 +1,35 @@
-import { certificates, playgrounds, projects, stats } from "@/data";
+import { getLogoFromLanguage } from "@/util/getLogoFromLanguage";
+import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
+import { User } from "models/User";
 
 const Portfolio = () => {
+  const { user } = useAppContext();
+
+  const stats = [
+    {
+      label: "Longest Streak",
+      value: user.stats.longestStreak,
+      icon: "/icons/app/Lightning.png",
+    },
+    {
+      label: "Experience Points",
+      value: user.stats.xp,
+      icon: "/icons/app/StarFour.png",
+    },
+    {
+      label: "Current League",
+      value: user.stats.league,
+      icon: "/icons/app/cup.png",
+    },
+    {
+      label: "Karma Points",
+      value: user.stats.karmaPoints,
+      icon: "/icons/app/Heartbeat.png",
+    },
+  ];
+
   return (
     <div>
       {/* STATS */}
@@ -33,7 +60,7 @@ const Portfolio = () => {
           <div className="portfolio-label-action">Create new project</div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2 gap-4">
-          {projects.map((project, i) => (
+          {user.projects.map((project) => (
             <div
               key={project.title}
               className="bg-zinc-100  text-zinc-700 cursor-pointer p-4 text-sm rounded-md"
@@ -58,16 +85,15 @@ const Portfolio = () => {
               </div>
               <div className="flex mt-1">
                 {project.skills.map((skill) => (
-                  <div key={skill.name} className="flex">
+                  <div key={skill} className="flex">
                     <Image
-                      src={skill.logo}
+                      src={getLogoFromLanguage(skill)}
                       width={20}
                       height={20}
-                      alt={skill.name}
+                      alt={skill}
                     />
-                    <div className="text-sm font-light ml-2">{skill.name}</div>
-                    {skill.name !==
-                      project.skills[project.skills.length - 1].name && (
+                    <div className="text-sm font-light ml-2">{skill}</div>
+                    {skill !== project.skills[project.skills.length - 1] && (
                       <div className="mx-3">•</div>
                     )}
                   </div>
@@ -85,16 +111,16 @@ const Portfolio = () => {
           <div className="portfolio-label-action">Create new playground</div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
-          {playgrounds.map((playground) => (
+          {user.playgrounds.map((playground) => (
             <div
               key={playground.title}
               className="bg-zinc-100 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row"
             >
               <Image
-                src={playground.logo}
+                src={getLogoFromLanguage(playground.language)}
                 width={40}
                 height={40}
-                alt={playground.title}
+                alt={playground.language}
                 className="m-2"
               />
               <div className="flex flex-col ml-2">
@@ -146,7 +172,7 @@ const Portfolio = () => {
           <div className="portfolio-label-action">Add new certificate</div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
-          {certificates.map((certificate) => (
+          {user.certificates.map((certificate) => (
             <div
               key={certificate.title}
               className="bg-zinc-100  text-zinc-700 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"

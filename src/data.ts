@@ -1,145 +1,145 @@
-export const stats = [
-  {
-    label: "Longest Streak",
-    value: "2",
-    icon: "/icons/app/Lightning.png",
+export const DummyUser = {
+  fullname: "Anna Cheng",
+  about: `Full stack dev at codedamn | Harvard'22"`,
+  location: "Mumbai, India",
+  profession: "Student",
+  dob: "21/12/1952",
+  gender: "Male",
+  profilePic: "",
+  coverPic: "",
+  skills: [
+    "HTML5",
+    "CSS3",
+    "Javascript",
+    "React",
+    "Python",
+    "C++",
+    "Mongo",
+    "NodeJs",
+  ],
+  socials: {
+    google: "",
+    instagram: "",
+    facebook: "",
+    linkedin: "",
+    youtube: "",
+    github: "",
+    behance: "",
+    dribbble: "",
   },
-  {
-    label: "Experience Points",
-    value: "1200",
-    icon: "/icons/app/StarFour.png",
+  configuration: {
+    showFollowers: true,
+    showXP: true,
+    showAchievementBadges: true,
   },
-  {
-    label: "Current League",
-    value: "Novice",
-    icon: "/icons/app/cup.png",
+  stats: {
+    longestStreak: 2,
+    xp: 1200,
+    league: "Novice",
+    karmaPoints: 120,
   },
-  {
-    label: "Karma Points",
-    value: "120",
-    icon: "/icons/app/Heartbeat.png",
-  },
-];
-
-export const projects = [
-  {
-    title: "Personal Portfolio Website",
-    image: "/images/project_img.png",
-    skills: [
-      { name: "HTML/CSS", logo: "/icons/programming_languages/html-5.png" },
-      { name: "React", logo: "/icons/programming_languages/react.png" },
-    ],
-  },
-  {
-    title: "SpaceFeed",
-    image: "/images/spacefeed_project_cover.jpg",
-    skills: [
-      { name: "HTML/CSS", logo: "/icons/programming_languages/html-5.png" },
-      { name: "React", logo: "/icons/programming_languages/react.png" },
-    ],
-  },
-  {
-    title: "WriterAI",
-    image: "/images/writerai_project_cover.jpg",
-    skills: [
-      { name: "HTML/CSS", logo: "/icons/programming_languages/html-5.png" },
-      { name: "React", logo: "/icons/programming_languages/react.png" },
-    ],
-  },
-  {
-    title: "DeskViewer",
-    image: "/images/deskviewer_project_cover.jpg",
-    skills: [
-      { name: "HTML/CSS", logo: "/icons/programming_languages/html-5.png" },
-      { name: "React", logo: "/icons/programming_languages/react.png" },
-    ],
-  },
-];
-
-export const playgrounds = [
-  {
-    title: "Playground title",
-    language: "HTML/CSS",
-    time: "1min ago",
-    logo: "/icons/programming_languages/html-5.png",
-    sharedWith: [
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
-    ],
-  },
-  {
-    title: "Web Playground",
-    language: "HTML/CSS",
-    time: "1min ago",
-    logo: "/icons/programming_languages/javascript.png",
-    sharedWith: [
-      { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-    ],
-  },
-  {
-    title: "App Playground",
-    language: "HTML/CSS",
-    time: "1min ago",
-    logo: "/icons/programming_languages/javascript.png",
-    sharedWith: [
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
-    ],
-  },
-  {
-    title: "Backend Playground",
-    language: "HTML/CSS",
-    time: "1min ago",
-    logo: "/icons/programming_languages/html-5.png",
-    sharedWith: [
-      { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
-      { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
-      { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
-    ],
-  },
-];
-
-export const certificates = [
-  {
-    title: "Advanced theoritical Javascript",
-    issuedDate: "Dec 16th, 2022",
-    logo: "/icons/programming_languages/javascript.png",
-  },
-  {
-    title: "HTML5 basic mastery",
-    issuedDate: "Jan 12th, 2022",
-    logo: "/icons/programming_languages/html-5.png",
-  },
-  {
-    title: "HTML5 advanced mastery",
-    issuedDate: "Apr 12th, 2022",
-    logo: "/icons/programming_languages/html-5.png",
-  },
-  {
-    title: "Basic theoritical Javascript",
-    issuedDate: "Feb 16th, 2022",
-    logo: "/icons/programming_languages/javascript.png",
-  },
-];
+  projects: [
+    {
+      title: "Personal Portfolio Website",
+      image: "/images/project_img.png",
+      skills: ["HTML/CSS", "React"],
+    },
+    {
+      title: "SpaceFeed",
+      image: "/images/spacefeed_project_cover.jpg",
+      skills: ["HTML/CSS", "React"],
+    },
+    {
+      title: "WriterAI",
+      image: "/images/writerai_project_cover.jpg",
+      skills: ["HTML/CSS", "React"],
+    },
+    {
+      title: "DeskViewer",
+      image: "/images/deskviewer_project_cover.jpg",
+      skills: ["HTML/CSS", "React"],
+    },
+  ],
+  playgrounds: [
+    {
+      title: "Playground title",
+      language: "HTML/CSS",
+      time: "1min ago",
+      sharedWith: [
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
+      ],
+    },
+    {
+      title: "Web Playground",
+      language: "HTML/CSS",
+      time: "1min ago",
+      sharedWith: [
+        { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+      ],
+    },
+    {
+      title: "App Playground",
+      language: "HTML/CSS",
+      time: "1min ago",
+      sharedWith: [
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
+      ],
+    },
+    {
+      title: "Backend Playground",
+      language: "HTML/CSS",
+      time: "1min ago",
+      sharedWith: [
+        { name: "Adam", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Adam", pic: "/icons/avatars/dummyuser2.png" },
+        { name: "Anna", pic: "/icons/avatars/dummyuser1.png" },
+        { name: "Ishant", pic: "/icons/avatars/dummyuser2.png" },
+      ],
+    },
+  ],
+  certificates: [
+    {
+      title: "Advanced theoritical Javascript",
+      issuedDate: "Dec 16th, 2022",
+      logo: "/icons/programming_languages/javascript.png",
+    },
+    {
+      title: "HTML5 basic mastery",
+      issuedDate: "Jan 12th, 2022",
+      logo: "/icons/programming_languages/html-5.png",
+    },
+    {
+      title: "HTML5 advanced mastery",
+      issuedDate: "Apr 12th, 2022",
+      logo: "/icons/programming_languages/html-5.png",
+    },
+    {
+      title: "Basic theoritical Javascript",
+      issuedDate: "Feb 16th, 2022",
+      logo: "/icons/programming_languages/javascript.png",
+    },
+  ],
+};
