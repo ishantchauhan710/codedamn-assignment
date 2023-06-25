@@ -69,7 +69,7 @@ const NavIcons = () => {
         className="relative mx-2 cursor-pointer"
         onClick={() => alert("Profile")}
       >
-        <Image src="/profile_user.png" width={40} height={40} alt="profile" />
+        <Image src="/profile_user_small.png" width={40} height={40} alt="profile" />
       </div>
     </div>
   );

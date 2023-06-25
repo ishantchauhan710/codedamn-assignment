@@ -23,7 +23,7 @@ const ProfileSection = () => {
 
   return (
     <div>
-      <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 rounded-t-xl h-40">
+      <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-40 rounded-t-xl">
         <button className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4">
           <Image
             src="/edit_profile_icon.png"
@@ -35,7 +35,7 @@ const ProfileSection = () => {
           Edit cover
         </button>
       </div>
-      <div className="flex border border-neutral-200 shadow-sm">
+      <div className="flex border border-neutral-200 shadow-sm rounded-b-xl">
         <div className="flex-[0.18] relative">
           <Image
             src="/profile_user.png"
