@@ -29,7 +29,7 @@ const SearchField = () => {
         required
       />
       <div
-        className="flex items-center justify-center bg-gray-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer"
+        className="flex items-center justify-center bg-gray-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-smzzzz"
         onClick={() => alert("Courses")}
       >
         <span className="mr-1">Courses</span>
