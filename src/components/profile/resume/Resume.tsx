@@ -140,9 +140,9 @@ const Resume = () => {
         {experience.map((exp) => (
           <div
             key={exp.description}
-            className="resume-section-body flex items-start mb-4"
+            className="resume-section-body block sm:flex items-start mb-4"
           >
-            <div className="mr-3">
+            <div className="mr-3 mb-1 sm:mb-0">
               <Image
                 src={exp.companyLogo}
                 width={40}
@@ -154,7 +154,7 @@ const Resume = () => {
               <div className="font-medium text-zinc-800 text-lg">
                 {exp.role} at {exp.company}
               </div>
-              <div className="flex items-center justify-between w-full">
+              <div className="block sm:flex items-center justify-between w-full">
                 <div className="text-zinc-700 text-sm">
                   {exp.location} • {exp.company} {exp.type}.
                 </div>
@@ -189,9 +189,9 @@ const Resume = () => {
         {education.map((edu) => (
           <div
             key={edu.schoolName}
-            className="resume-section-body flex items-start mb-4"
+            className="resume-section-body block sm:flex items-start mb-4"
           >
-            <div className="mr-3">
+            <div className="mr-3 mb-2">
               <Image
                 src={edu.logo}
                 width={40}
@@ -203,7 +203,7 @@ const Resume = () => {
               <div className="font-medium text-zinc-800 text-lg">
                 {edu.schoolName}
               </div>
-              <div className="flex items-center justify-between w-full">
+              <div className="block sm:flex items-center justify-between w-full">
                 <div className="text-zinc-700 text-sm">
                   {edu.schoolLocation}{" "}
                   {edu.certification && `• ${edu.certification}`}
