@@ -42,15 +42,13 @@ const skills = [
 ];
 
 export const getLogoFromLanguage = (language: string): string => {
-  let logo: string = "";
+  let logo: string = skills[0].logo;
 
   skills.forEach((skill) => {
     if (language.toLowerCase() === skill.title.toLowerCase()) {
       logo = skill.logo;
-    } else {
-      logo = skills[0].logo;
+      return;
     }
   });
-
   return logo;
 };
