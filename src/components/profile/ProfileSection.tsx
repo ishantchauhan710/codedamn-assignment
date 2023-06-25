@@ -48,10 +48,10 @@ const ProfileSection = () => {
         <div className="flex-[0.82] m-4">
           <div className="flex items-center">
             <span className="font-bold text-3xl mr-2">Anna Cheng</span>
-            <span className="bg-lime-400 px-2 text-sm mr-2 rounded-sm">
+            <span className="bg-lime-300 px-2 text-sm mr-2 rounded-sm">
               Pro
             </span>
-            <span className="bg- bg-sky-200 text-sky-800 px-2 text-sm rounded-sm font-semibold">
+            <span className="bg- bg-sky-100 text-sky-800 px-2 text-sm rounded-sm font-semibold">
               Looking for job
             </span>
           </div>

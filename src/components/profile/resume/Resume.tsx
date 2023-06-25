@@ -51,6 +51,45 @@ const Resume = () => {
     },
   ];
 
+  const skills = [
+    {
+      title: "HTML 5",
+      logo: "/icons/programming_languages/html-5.png",
+    },
+    {
+      title: "CSS 3",
+      logo: "/icons/programming_languages/css.png",
+    },
+    {
+      title: "Javascript",
+      logo: "/icons/programming_languages/javascript.png",
+    },
+    {
+      title: "React",
+      logo: "/icons/programming_languages/react.png",
+    },
+    {
+      title: "Next.js",
+      logo: "/icons/programming_languages/NextJs.png",
+    },
+    {
+      title: "Mongo",
+      logo: "/icons/programming_languages/mongodb.png",
+    },
+    {
+      title: "NodeJs",
+      logo: "/icons/programming_languages/node.png",
+    },
+    {
+      title: "Python",
+      logo: "/icons/programming_languages/python.png",
+    },
+    {
+      title: "Java",
+      logo: "/icons/programming_languages/java.png",
+    },
+  ];
+
   return (
     <div>
       {/* ABOUT */}
@@ -159,6 +198,29 @@ const Resume = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* SKILLS */}
+      <div className="resume-section">
+        <div className="resume-label">Skills</div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <div
+              onClick={() => alert(skill.title)}
+              key={skill.title}
+              className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
+            >
+              <Image
+                src={skill.logo}
+                width={20}
+                height={20}
+                alt={skill.title}
+                className="mr-2"
+              />
+              {skill.title}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
