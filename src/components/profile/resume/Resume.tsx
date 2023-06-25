@@ -1,118 +1,10 @@
+import { getLogoFromLanguage } from "@/util/getLogoFromLanguage";
+import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
 
 const Resume = () => {
-  const experience = [
-    {
-      role: "Front-end developer",
-      company: "Google",
-      type: "inc",
-      location: "London",
-      duration: "May 2021 - Present",
-      description:
-        "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. This position requires a profound understanding of the development process, using front-end technologies including HTML5, CSS3, JavaScript, jQuery, PHP/WordPress.",
-      companyLogo: "/icons/social_media_platforms/Google.png",
-      responsiblities: [],
-    },
-    {
-      role: "Junior Front-end developer",
-      company: "Meta",
-      type: "inc",
-      location: "New York",
-      duration: "July 2020 - May 2021",
-      description:
-        "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. ",
-      companyLogo: "/icons/social_media_platforms/Facebook.png",
-      responsiblities: [
-        "Create an appealing design and turn it into a WordPress plugin",
-        "Manage all technical aspects of the CMS",
-        "Conducting website/application tests",
-      ],
-    },
-  ];
-
-  const education = [
-    {
-      schoolName: "Harvard University",
-      schoolLocation: "Cambridge, GA",
-      certification: "Bachelor Degree, Computer Science (Bsc)",
-      duration: "May 2020 - Present",
-      logo: "/images/harvard.png",
-      description:
-        "Emory Admissions Fellow; assisted Dean of Admissions with student applications and Emory’s marketing strategy in the roll out of the university’s new website",
-    },
-    {
-      schoolName: "Mister Bim High School",
-      schoolLocation: "Atlanta, GA",
-      certification: null,
-      duration: "September 2016 - 2020",
-      logo: "/images/harvard.png",
-      description: null,
-    },
-  ];
-
-  const skills = [
-    {
-      title: "HTML 5",
-      logo: "/icons/programming_languages/html-5.png",
-    },
-    {
-      title: "CSS 3",
-      logo: "/icons/programming_languages/css.png",
-    },
-    {
-      title: "Javascript",
-      logo: "/icons/programming_languages/javascript.png",
-    },
-    {
-      title: "React",
-      logo: "/icons/programming_languages/react.png",
-    },
-    {
-      title: "Next.js",
-      logo: "/icons/programming_languages/NextJs.png",
-    },
-    {
-      title: "Mongo",
-      logo: "/icons/programming_languages/mongodb.png",
-    },
-    {
-      title: "NodeJs",
-      logo: "/icons/programming_languages/node.png",
-    },
-    {
-      title: "Python",
-      logo: "/icons/programming_languages/python.png",
-    },
-    {
-      title: "Java",
-      logo: "/icons/programming_languages/java.png",
-    },
-  ];
-
-  const interests = [
-    "Semantics",
-    "TED Talks",
-    "Udemy",
-    "Behavioral",
-    "Economics",
-    "Hiking",
-  ];
-
-  const languages = [
-    {
-      language: "English",
-      flag: "/icons/flags/english.png",
-    },
-    {
-      language: "Mandarin",
-      flag: "/icons/flags/mandarin.png",
-    },
-    {
-      language: "Cantonese Chinese",
-      flag: "/icons/flags/china.png",
-    },
-  ];
+  const { user } = useAppContext();
 
   return (
     <div>
@@ -137,14 +29,14 @@ const Resume = () => {
       {/* EXPERIENCE */}
       <div className="resume-section">
         <div className="resume-label text-center">Work Experience</div>
-        {experience.map((exp) => (
+        {user.resume.experience.map((exp) => (
           <div
             key={exp.description}
             className="resume-section-body block sm:flex items-start mb-4"
           >
             <div className="mr-3 mb-1 sm:mb-0">
               <Image
-                src={exp.companyLogo}
+                src="/icons/social_media_platforms/Facebook.png"
                 width={40}
                 height={40}
                 alt={exp.company}
@@ -186,14 +78,14 @@ const Resume = () => {
       {/* EDUCATION */}
       <div className="resume-section">
         <div className="resume-label-sm">Education</div>
-        {education.map((edu) => (
+        {user.resume.education.map((edu) => (
           <div
             key={edu.schoolName}
             className="resume-section-body block sm:flex items-start mb-4"
           >
             <div className="mr-3 mb-2">
               <Image
-                src={edu.logo}
+                src="/images/harvard.png"
                 width={40}
                 height={40}
                 alt={edu.schoolName}
@@ -225,20 +117,20 @@ const Resume = () => {
       <div className="resume-section">
         <div className="resume-label-sm">Skills</div>
         <div className="mt-5 flex flex-wrap gap-2">
-          {skills.map((skill) => (
+          {user.skills.map((skill) => (
             <div
-              onClick={() => alert(skill.title)}
-              key={skill.title}
+              onClick={() => alert(skill)}
+              key={skill}
               className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
             >
               <Image
-                src={skill.logo}
+                src={getLogoFromLanguage(skill)}
                 width={20}
                 height={20}
-                alt={skill.title}
+                alt={skill}
                 className="mr-2"
               />
-              {skill.title}
+              {skill}
             </div>
           ))}
         </div>
@@ -247,7 +139,7 @@ const Resume = () => {
       <div className="resume-section">
         <div className="resume-label-sm">Interests</div>
         <div className="mt-5 flex flex-wrap gap-2">
-          {interests.map((interest) => (
+          {user.resume.interests.map((interest) => (
             <span
               onClick={() => alert(interest)}
               key={interest}
@@ -262,20 +154,20 @@ const Resume = () => {
       <div className="resume-section">
         <div className="resume-label-sm">Languages</div>
         <div className="mt-5 flex flex-wrap gap-2">
-          {languages.map((language) => (
+          {user.resume.languages.map((language) => (
             <div
-              onClick={() => alert(language.language)}
-              key={language.language}
+              onClick={() => alert(language)}
+              key={language}
               className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
             >
               <Image
-                src={language.flag}
+                src="/icons/flags/china.png"
                 width={20}
                 height={20}
-                alt={language.language}
+                alt={language}
                 className="mr-2"
               />
-              {language.language}
+              {language}
             </div>
           ))}
         </div>

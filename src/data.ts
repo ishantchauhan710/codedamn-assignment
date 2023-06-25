@@ -12,10 +12,11 @@ export const DummyUser = {
     "CSS3",
     "Javascript",
     "React",
-    "Python",
-    "C++",
+    "Next.js",
     "Mongo",
     "NodeJs",
+    "Python",
+    "Java",
   ],
   socials: {
     google: "",
@@ -142,4 +143,58 @@ export const DummyUser = {
       logo: "/icons/programming_languages/javascript.png",
     },
   ],
+  resume: {
+    experience: [
+      {
+        role: "Front-end developer",
+        company: "Google",
+        type: "inc",
+        location: "London",
+        duration: "May 2021 - Present",
+        description:
+          "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. This position requires a profound understanding of the development process, using front-end technologies including HTML5, CSS3, JavaScript, jQuery, PHP/WordPress.",
+        responsiblities: [],
+      },
+      {
+        role: "Junior Front-end developer",
+        company: "Meta",
+        type: "inc",
+        location: "New York",
+        duration: "July 2020 - May 2021",
+        description:
+          "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. ",
+        responsiblities: [
+          "Create an appealing design and turn it into a WordPress plugin",
+          "Manage all technical aspects of the CMS",
+          "Conducting website/application tests",
+        ],
+      },
+    ],
+    education: [
+      {
+        schoolName: "Harvard University",
+        schoolLocation: "Cambridge, GA",
+        certification: "Bachelor Degree, Computer Science (Bsc)",
+        duration: "May 2020 - Present",
+        description:
+          "Emory Admissions Fellow; assisted Dean of Admissions with student applications and Emory’s marketing strategy in the roll out of the university’s new website",
+      },
+      {
+        schoolName: "Mister Bim High School",
+        schoolLocation: "Atlanta, GA",
+        certification: null,
+        duration: "September 2016 - 2020",
+        description: null,
+      },
+    ],
+    interests: [
+      "Semantics",
+      "TED Talks",
+      "Udemy",
+      "Behavioral",
+      "Economics",
+      "Hiking",
+    ],
+    languages: ["English", "Mandarin", "Cantonese Chinese"],
+  },
 };

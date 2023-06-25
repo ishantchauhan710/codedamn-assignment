@@ -22,6 +22,31 @@ export type UserCertificate = {
   logo: string;
 };
 
+export type ResumeExperience = {
+  role: string;
+  company: string;
+  type: string;
+  location: string;
+  duration: string;
+  description: string;
+  responsiblities: string[];
+};
+
+export type ResumeEducation = {
+  schoolName: string;
+  schoolLocation: string;
+  certification: string | null;
+  duration: string;
+  description: string | null;
+};
+
+export type Resume = {
+  experience: ResumeExperience[];
+  education: ResumeEducation[];
+  interests: string[];
+  languages: string[];
+};
+
 export type User = {
   fullname: string;
   about: string;
@@ -56,4 +81,5 @@ export type User = {
   projects: UserProject[];
   playgrounds: UserPlayground[];
   certificates: UserCertificate[];
+  resume: Resume;
 };
