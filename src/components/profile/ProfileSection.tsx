@@ -14,11 +14,11 @@ const ProfileSection = () => {
   ];
 
   const socials = [
-    "/Google.png",
-    "/Instagram.png",
-    "/Facebook.png",
-    "/LinkedIn.png",
-    "/YouTube.png",
+    "/icons/social_media_platforms/Google.png",
+    "/icons/social_media_platforms/Instagram.png",
+    "/icons/social_media_platforms/Facebook.png",
+    "/icons/social_media_platforms/LinkedIn.png",
+    "/icons/social_media_platforms/YouTube.png",
   ];
 
   return (
@@ -26,7 +26,7 @@ const ProfileSection = () => {
       <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-40 rounded-t-xl">
         <button className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4">
           <Image
-            src="/edit_profile_icon.png"
+            src="/icons/app/edit_profile_icon.png"
             width={16}
             height={16}
             alt="edit profile"
@@ -38,7 +38,7 @@ const ProfileSection = () => {
       <div className="flex border border-neutral-200 shadow-sm rounded-b-xl">
         <div className="flex-[0.18] relative">
           <Image
-            src="/profile_user.png"
+            src="/icons/avatars/profile_big.png"
             width={140}
             height={140}
             alt="location"
@@ -60,7 +60,7 @@ const ProfileSection = () => {
           </div>
           <div className="text-md text-neutral-600 mt-1 flex items-center font-light">
             <Image
-              src="/location.png"
+              src="/icons/app/location.png"
               width={16}
               height={16}
               alt="location"
@@ -73,7 +73,7 @@ const ProfileSection = () => {
               <span
                 onClick={() => alert(skill)}
                 key={skill}
-                className="bg-neutral-200/40 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
+                className="bg-zinc-100 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
               >
                 {skill}
               </span>
@@ -95,10 +95,10 @@ const ProfileSection = () => {
             <div className="flex items-center justify-end flex-[0.5]">
               <div
                 onClick={() => alert("Copy Profile")}
-                className="bg-neutral-200/40 mr-2 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
+                className="bg-zinc-100 mr-2 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
               >
                 <Image
-                  src="/copy_icon.png"
+                  src="/icons/app/copy_icon.png"
                   width={16}
                   height={16}
                   alt="copy profile"

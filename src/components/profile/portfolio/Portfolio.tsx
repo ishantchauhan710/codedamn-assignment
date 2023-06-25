@@ -12,14 +12,14 @@ const Portfolio = () => {
           {stats.map((stat, i) => (
             <div
               key={stat.label + stat.value}
-              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
+              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
             >
               <Image src={stat.icon} width={32} height={32} alt={stat.label} />
               <div className="flex flex-col ml-1">
-                <div className="text-neutral-700 font-bold text-lg">
+                <div className="text-zinc-700 font-bold text-lg">
                   {stat.value}
                 </div>
-                <div className="text-neutral-700 text-sm">{stat.label}</div>
+                <div className="text-zinc-700 text-sm">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -36,7 +36,7 @@ const Portfolio = () => {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className="bg-neutral-100 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-4 text-sm rounded-md"
+              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-4 text-sm rounded-md"
             >
               <div
                 style={{
@@ -88,7 +88,7 @@ const Portfolio = () => {
           {playgrounds.map((playground) => (
             <div
               key={playground.title}
-              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start"
+              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start"
             >
               <Image
                 src={playground.logo}
@@ -98,10 +98,10 @@ const Portfolio = () => {
                 className="m-2"
               />
               <div className="flex flex-col ml-2">
-                <div className="text-neutral-700 font-semibold text-lg">
+                <div className="text-zinc-700 font-semibold text-lg">
                   {playground.title}
                 </div>
-                <div className="text-neutral-700 text-sm font-light mt-1">
+                <div className="text-zinc-700 text-sm font-light mt-1">
                   {playground.language} • {playground.time}
                 </div>
                 <div className="mt-2 flex items-center">
@@ -149,7 +149,7 @@ const Portfolio = () => {
           {certificates.map((certificate) => (
             <div
               key={certificate.title}
-              className="bg-neutral-200/40 hover:bg-neutral-200/70 text-gray-800 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
+              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
             >
               <Image
                 src={certificate.logo}
@@ -158,13 +158,13 @@ const Portfolio = () => {
                 alt={certificate.logo}
               />
 
-              <div className="text-neutral-700 font-semibold text-lg mt-4">
+              <div className="text-zinc-700 font-semibold text-lg mt-4">
                 {certificate.title}
               </div>
-              <div className="text-neutral-700 text-sm font-light">
+              <div className="text-zinc-700 text-sm font-light">
                 Issued on {certificate.issuedDate}
               </div>
-              <div className="text-neutral-700/80 text-sm font-semibold  mt-2">
+              <div className="text-zinc-700/80 text-sm font-semibold  mt-2">
                 See Credentials
               </div>
             </div>

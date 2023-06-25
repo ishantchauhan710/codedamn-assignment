@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div className="self-start mr-auto">
       <Image
-        src="/codedamn_logo.png"
+        src="/icons/codedamn/codedamn_logo.png"
         width={125}
         height={32}
         alt="codedamn logo"
@@ -19,7 +19,12 @@ const SearchField = () => {
   return (
     <div className="ml-2 mr-6 hidden relative md:block">
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <Image src="/search.png" width={16} height={16} alt="search codedamn" />
+        <Image
+          src="/icons/app/search.png"
+          width={16}
+          height={16}
+          alt="search codedamn"
+        />
       </div>
       <input
         type="text"
@@ -29,11 +34,16 @@ const SearchField = () => {
         required
       />
       <div
-        className="flex items-center justify-center bg-gray-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+        className="flex items-center justify-center bg-zinc-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
         onClick={() => alert("Courses")}
       >
         <span className="mr-1">Courses</span>
-        <Image src="/down.png" width={14} height={14} alt="search codedamn" />
+        <Image
+          src="/icons/app/down.png"
+          width={14}
+          height={14}
+          alt="search codedamn"
+        />
       </div>
     </div>
   );
@@ -46,8 +56,10 @@ const NavIcons = () => {
       onClick={() => alert("Spark")}
     >
       <div className="flex items-center justify-between mx-2 cursor-pointer">
-        <Image src="/spark.png" width={20} height={20} alt="spark" />
-        <span className="font-semibold text-neutral-600 text-md ml-1 hover:text-neutral-900">2</span>
+        <Image src="/icons/app/spark.png" width={20} height={20} alt="spark" />
+        <span className="font-semibold text-neutral-600 text-md ml-1 hover:text-neutral-900">
+          2
+        </span>
       </div>
 
       <div
@@ -55,12 +67,12 @@ const NavIcons = () => {
         onClick={() => alert("Notifications")}
       >
         <Image
-          src="/notification.png"
+          src="/icons/app/notification.png"
           width={24}
           height={24}
           alt="notifications"
         />
-        <div className="absolute bg-pink-700 hover:bg-pink-600 rounded-full text-white text-sm font-semibold p-[1px] w-4 h-4 flex items-center justify-center inset-y-0 right-0 mt-[-7px] mr-[-4px] cursor-pointer">
+        <div className="absolute bg-pink-500 hover:bg-pink-600 rounded-full text-white text-sm font-semibold p-[1px] w-4 h-4 flex items-center justify-center inset-y-0 right-0 mt-[-7px] mr-[-4px] cursor-pointer">
           1
         </div>
       </div>
@@ -69,7 +81,13 @@ const NavIcons = () => {
         className="relative mx-2 cursor-pointer transition"
         onClick={() => alert("Profile")}
       >
-        <Image src="/profile_user_small.png" width={40} height={40} alt="profile" />
+        <Image
+          src="/icons/avatars/profile_small.png"
+          width={42}
+          height={42}
+          alt="profile"
+          className="mt-[-12px]"
+        />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Resume = () => {
       duration: "May 2021 - Present",
       description:
         "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. This position requires a profound understanding of the development process, using front-end technologies including HTML5, CSS3, JavaScript, jQuery, PHP/WordPress.",
-      companyLogo: "/GoogleBig.png",
+      companyLogo: "/icons/social_media_platforms/Google.png",
       responsiblities: [],
     },
     {
@@ -22,7 +22,7 @@ const Resume = () => {
       duration: "July 2020 - May 2021",
       description:
         "This role would be great for a web developer with 3+ years' experience in designing and developing responsive websites. ",
-      companyLogo: "/FacebookBig.png",
+      companyLogo: "/icons/social_media_platforms/Facebook.png",
       responsiblities: [
         "Create an appealing design and turn it into a WordPress plugin",
         "Manage all technical aspects of the CMS",
@@ -37,7 +37,7 @@ const Resume = () => {
       schoolLocation: "Cambridge, GA",
       certification: "Bachelor Degree, Computer Science (Bsc)",
       duration: "May 2020 - Present",
-      logo: "/harvard.png",
+      logo: "/images/harvard.png",
       description:
         "Emory Admissions Fellow; assisted Dean of Admissions with student applications and Emory’s marketing strategy in the roll out of the university’s new website",
     },
@@ -46,7 +46,7 @@ const Resume = () => {
       schoolLocation: "Atlanta, GA",
       certification: null,
       duration: "September 2016 - 2020",
-      logo: "/harvard.png",
+      logo: "/images/harvard.png",
       description: null,
     },
   ];
@@ -93,10 +93,10 @@ const Resume = () => {
                 {exp.role} at {exp.company}
               </div>
               <div className="flex items-center justify-between w-full">
-                <div className="text-neutral-700 text-sm">
+                <div className="text-zinc-700 text-sm">
                   {exp.location} • {exp.company} {exp.type}.
                 </div>
-                <div className="text-neutral-700 text-sm font-semibold">
+                <div className="text-zinc-700 text-sm font-semibold">
                   {exp.duration}
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Resume = () => {
                   <div className="font-medium text-neutral-800 text-sm">
                     Job Responsiblities:
                   </div>
-                  <ul className="list-image-[url(/list_bullet.png)] ml-4 mt-2">
+                  <ul className="list-image-[url(/icons/app/list_bullet.png)] ml-4 mt-2">
                     {exp.responsiblities.map((resp) => (
                       <li className="text-neutral-600 text-sm" key={resp}>
                         {resp}
@@ -143,11 +143,11 @@ const Resume = () => {
                 {edu.schoolName}
               </div>
               <div className="flex items-center justify-between w-full">
-                <div className="text-neutral-700 text-sm">
+                <div className="text-zinc-700 text-sm">
                   {edu.schoolLocation}{" "}
                   {edu.certification && `• ${edu.certification}`}
                 </div>
-                <div className="text-neutral-700 text-sm font-semibold">
+                <div className="text-zinc-700 text-sm font-semibold">
                   {edu.duration}
                 </div>
               </div>
