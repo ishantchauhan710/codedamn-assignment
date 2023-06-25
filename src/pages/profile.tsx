@@ -1,3 +1,4 @@
+import ProfileTab from "@/components/edit/ProfileTab";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
@@ -8,7 +9,7 @@ const Profile = () => {
 
   return (
     <div className="my-24 flex">
-      <div className="flex-[0.25] py-4 mx-4">
+      <div className="flex-[0.25] mx-4">
         <div className="bg-zinc-100 py-6 rounded-md">
           {tabs.map((tab) => (
             <div
@@ -32,7 +33,9 @@ const Profile = () => {
           ))}
         </div>
       </div>
-      <div className="bg-blue-400 flex-[0.75]">Right</div>
+      <div className="flex-[0.75] mx-4 pr-4">
+        <ProfileTab />
+      </div>
     </div>
   );
 };

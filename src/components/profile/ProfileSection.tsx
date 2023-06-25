@@ -41,7 +41,7 @@ const ProfileSection = () => {
             src="/icons/avatars/profile_big.png"
             width={140}
             height={140}
-            alt="location"
+            alt="profile"
             className="absolute mt-[-50px] ml-4 cursor-pointer"
           />
         </div>
