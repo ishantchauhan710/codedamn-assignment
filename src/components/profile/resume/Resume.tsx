@@ -90,11 +90,35 @@ const Resume = () => {
     },
   ];
 
+  const interests = [
+    "Semantics",
+    "TED Talks",
+    "Udemy",
+    "Behavioral",
+    "Economics",
+    "Hiking",
+  ];
+
+  const languages = [
+    {
+      language: "English",
+      flag: "/icons/flags/english.png",
+    },
+    {
+      language: "Mandarin",
+      flag: "/icons/flags/mandarin.png",
+    },
+    {
+      language: "Cantonese Chinese",
+      flag: "/icons/flags/china.png",
+    },
+  ];
+
   return (
     <div>
       {/* ABOUT */}
       <div className="resume-section">
-        <div className="resume-label">About Me</div>
+        <div className="resume-label text-center">About Me</div>
         <div className="resume-section-body">
           <p>
             A self-driven, versatile, reliable, diligent individual who is calm
@@ -110,10 +134,9 @@ const Resume = () => {
           </button>
         </div>
       </div>
-
       {/* EXPERIENCE */}
       <div className="resume-section">
-        <div className="resume-label">Work Experience</div>
+        <div className="resume-label text-center">Work Experience</div>
         {experience.map((exp) => (
           <div
             key={exp.description}
@@ -160,10 +183,9 @@ const Resume = () => {
           </div>
         ))}
       </div>
-
       {/* EDUCATION */}
       <div className="resume-section">
-        <div className="resume-label">Education</div>
+        <div className="resume-label-sm">Education</div>
         {education.map((edu) => (
           <div
             key={edu.schoolName}
@@ -199,10 +221,9 @@ const Resume = () => {
           </div>
         ))}
       </div>
-
       {/* SKILLS */}
       <div className="resume-section">
-        <div className="resume-label">Skills</div>
+        <div className="resume-label-sm">Skills</div>
         <div className="mt-5 flex flex-wrap gap-2">
           {skills.map((skill) => (
             <div
@@ -218,6 +239,43 @@ const Resume = () => {
                 className="mr-2"
               />
               {skill.title}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* INTERESTS */}
+      <div className="resume-section">
+        <div className="resume-label-sm">Interests</div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {interests.map((interest) => (
+            <span
+              onClick={() => alert(interest)}
+              key={interest}
+              className="bg-zinc-100 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
+            >
+              {interest}
+            </span>
+          ))}
+        </div>
+      </div>
+      {/* LANGUAGES */}
+      <div className="resume-section">
+        <div className="resume-label-sm">Languages</div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {languages.map((language) => (
+            <div
+              onClick={() => alert(language.language)}
+              key={language.language}
+              className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
+            >
+              <Image
+                src={language.flag}
+                width={20}
+                height={20}
+                alt={language.language}
+                className="mr-2"
+              />
+              {language.language}
             </div>
           ))}
         </div>
