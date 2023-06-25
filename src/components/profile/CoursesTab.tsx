@@ -1,8 +1,9 @@
+import { useAppContext } from "context/AppContext";
 import React, { useState } from "react";
 
 const CoursesTab = () => {
   const tabs = ["Portfolio", "Resume"];
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const { activeTab, setActiveTab } = useAppContext();
 
   return (
     <div className="border border-neutral-200 shadow-sm mt-6 rounded-xl px-3 py-4">
