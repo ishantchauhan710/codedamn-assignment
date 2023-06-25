@@ -119,6 +119,29 @@ const Portfolio = () => {
     },
   ];
 
+  const certificates = [
+    {
+      title: "Advanced theoritical Javascript",
+      issuedDate: "Dec 16th, 2022",
+      logo: "/javascriptbig.png",
+    },
+    {
+      title: "Advanced theoritical Javascript",
+      issuedDate: "Dec 16th, 2022",
+      logo: "/javascriptbig.png",
+    },
+    {
+      title: "Advanced theoritical Javascript",
+      issuedDate: "Dec 16th, 2022",
+      logo: "/javascriptbig.png",
+    },
+    {
+      title: "Advanced theoritical Javascript",
+      issuedDate: "Dec 16th, 2022",
+      logo: "/javascriptbig.png",
+    },
+  ];
+
   return (
     <div>
       {/* STATS */}
@@ -241,6 +264,39 @@ const Portfolio = () => {
                     )}
                   </div>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CERTIFICATES */}
+      <div className="portfolio-section">
+        <div className="flex items-center justify-between">
+          <div className="portfolio-label">Certificates</div>
+          <div className="portfolio-label-action">Add new certificate</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          {certificates.map((certificate) => (
+            <div
+              key={certificate.title}
+              className="bg-neutral-200/40  text-gray-800 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
+            >
+              <Image
+                src={certificate.logo}
+                width={40}
+                height={40}
+                alt={certificate.logo}
+              />
+
+              <div className="text-neutral-700 font-semibold text-lg mt-4">
+                {certificate.title}
+              </div>
+              <div className="text-neutral-700 text-sm font-light">
+                Issued on {certificate.issuedDate}
+              </div>
+              <div className="text-neutral-700/80 text-sm font-semibold  mt-2">
+                See Credentials
               </div>
             </div>
           ))}
