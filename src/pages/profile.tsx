@@ -1,4 +1,5 @@
 import ProfileTab from "@/components/edit/ProfileTab";
+import SocialsTab from "@/components/edit/SocialsTab";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
@@ -34,7 +35,8 @@ const Profile = () => {
         </div>
       </div>
       <div className="flex-[0.75] mx-4 pr-4">
-        <ProfileTab />
+        {activeProfileTab === "Profile" && <ProfileTab />}
+        {activeProfileTab === "Socials" && <SocialsTab />}
       </div>
     </div>
   );

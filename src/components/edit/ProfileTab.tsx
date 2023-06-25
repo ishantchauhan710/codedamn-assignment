@@ -128,13 +128,13 @@ const ProfileTab = () => {
       <div className="mt-4 flex items-center justify-end">
         <button
           onClick={() => alert("Contact")}
-          className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md text-sm ml-2"
+          className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
         >
           Cancel
         </button>
         <button
           onClick={() => alert("Contact")}
-          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md text-sm ml-4"
+          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md ml-4"
         >
           Save changes
         </button>
