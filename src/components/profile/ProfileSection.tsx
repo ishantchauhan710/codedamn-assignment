@@ -35,8 +35,8 @@ const ProfileSection = () => {
           Edit cover
         </button>
       </div>
-      <div className="flex border border-neutral-200 shadow-sm rounded-b-xl">
-        <div className="flex-[0.18] relative">
+      <div className="flex flex-col md:flex-row border border-neutral-200 shadow-sm rounded-b-xl">
+        <div className="h-[70px] md:h-[0px] md:flex-[0.18] relative">
           <Image
             src="/icons/avatars/profile_big.png"
             width={140}
@@ -46,19 +46,21 @@ const ProfileSection = () => {
           />
         </div>
         <div className="flex-[0.82] m-4">
-          <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row sm:items-center">
             <span className="font-bold text-3xl mr-2">Anna Cheng</span>
-            <span className="bg-lime-300 px-2 text-sm mr-2 rounded-sm">
-              Pro
-            </span>
-            <span className="bg- bg-sky-100 text-sky-800 px-2 text-sm rounded-sm font-semibold">
-              Looking for job
-            </span>
+            <div>
+              <span className="bg-lime-300 px-2 py-[3px] text-sm mr-2 rounded-sm">
+                Pro
+              </span>
+              <span className="bg- bg-sky-100 text-sky-800 px-2 py-[3px] text-sm rounded-sm font-semibold">
+                Looking for job
+              </span>
+            </div>
           </div>
-          <div className="text-md text-neutral-600 mt-1">
+          <div className="text-md text-zinc-600 mt-1">
             Full stack dev at codedamn | Harvard&lsquo;22&ldquo;
           </div>
-          <div className="text-md text-neutral-600 mt-1 flex items-center font-light">
+          <div className="text-md text-zinc-600 mt-1 flex items-center font-light">
             <Image
               src="/icons/app/location.png"
               width={16}
@@ -80,7 +82,7 @@ const ProfileSection = () => {
             ))}
           </div>
           <hr className="h-[1px] mt-8 bg-gray-200" />
-          <div className="flex items-center mt-5">
+          <div className="flex flex-col sm:flex-row sm:items-center mt-5">
             <div className="flex flex-wrap gap-2 flex-[0.5]">
               {socials.map((social) => (
                 <div
@@ -92,7 +94,7 @@ const ProfileSection = () => {
                 </div>
               ))}
             </div>
-            <div className="flex items-center justify-end flex-[0.5]">
+            <div className="flex items-center sm:justify-end flex-[0.5] mt-4 sm:mt-0">
               <div
                 onClick={() => alert("Copy Profile")}
                 className="bg-zinc-100 mr-2 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"

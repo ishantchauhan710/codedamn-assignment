@@ -29,12 +29,12 @@ const SearchField = () => {
       <input
         type="text"
         id="default-search"
-        className="block w-80 py-[6px] pl-10 pr-20 text-md text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+        className="block w-80 py-[6px] pl-10 pr-20 text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
         placeholder="Search"
         required
       />
       <div
-        className="flex items-center justify-center bg-zinc-200 hover:bg-gray-300/70 text-neutral-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+        className="flex items-center justify-center bg-zinc-200 hover:bg-gray-300/70 text-zinc-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
         onClick={() => alert("Courses")}
       >
         <span className="mr-1">Courses</span>
@@ -57,7 +57,7 @@ const NavIcons = () => {
     >
       <div className="flex items-center justify-between mx-2 cursor-pointer">
         <Image src="/icons/app/spark.png" width={20} height={20} alt="spark" />
-        <span className="font-semibold text-neutral-600 text-md ml-1 hover:text-neutral-900">
+        <span className="font-semibold text-zinc-600 text-md ml-1 hover:text-zinc-900">
           2
         </span>
       </div>

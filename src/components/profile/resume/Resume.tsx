@@ -129,7 +129,7 @@ const Resume = () => {
           </p>
           <br />
           <p>A student who is passionate and with a keen eye for design ...</p>
-          <button className="bg-neutral-200 hover:bg-neutral-300 text-neutral-800 px-3 py-2 rounded-sm mt-4 text-sm">
+          <button className="bg-neutral-200 hover:bg-neutral-300 text-zinc-800 px-3 py-2 rounded-sm mt-4 text-sm">
             Read More
           </button>
         </div>
@@ -151,7 +151,7 @@ const Resume = () => {
               />
             </div>
             <div className="flex-1 flex flex-col items-start">
-              <div className="font-medium text-neutral-800 text-lg">
+              <div className="font-medium text-zinc-800 text-lg">
                 {exp.role} at {exp.company}
               </div>
               <div className="flex items-center justify-between w-full">
@@ -162,17 +162,17 @@ const Resume = () => {
                   {exp.duration}
                 </div>
               </div>
-              <div className="text-neutral-600 text-sm mt-4">
+              <div className="text-zinc-600 text-sm mt-4">
                 {exp.description}
               </div>
               {exp.responsiblities.length > 0 && (
                 <div className="mt-4">
-                  <div className="font-medium text-neutral-800 text-sm">
+                  <div className="font-medium text-zinc-800 text-sm">
                     Job Responsiblities:
                   </div>
                   <ul className="list-image-[url(/icons/app/list_bullet.png)] ml-4 mt-2">
                     {exp.responsiblities.map((resp) => (
-                      <li className="text-neutral-600 text-sm" key={resp}>
+                      <li className="text-zinc-600 text-sm" key={resp}>
                         {resp}
                       </li>
                     ))}
@@ -200,7 +200,7 @@ const Resume = () => {
               />
             </div>
             <div className="flex-1 flex flex-col items-start">
-              <div className="font-medium text-neutral-800 text-lg">
+              <div className="font-medium text-zinc-800 text-lg">
                 {edu.schoolName}
               </div>
               <div className="flex items-center justify-between w-full">
@@ -213,7 +213,7 @@ const Resume = () => {
                 </div>
               </div>
               {edu.description && (
-                <div className="text-neutral-600 text-sm mt-4">
+                <div className="text-zinc-600 text-sm mt-4">
                   {edu.description}
                 </div>
               )}

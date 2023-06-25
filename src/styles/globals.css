@@ -8,7 +8,7 @@
   }
 
   .portfolio-label {
-    @apply font-bold text-2xl text-neutral-800 mb-4;
+    @apply font-bold text-2xl text-zinc-800 mb-1 sm:mb-4;
   }
 
   .portfolio-label-action {
@@ -16,11 +16,11 @@
   }
 
   .resume-label {
-    @apply font-bold text-2xl text-neutral-800 mb-4;
+    @apply font-bold text-2xl text-zinc-800 mb-4;
   }
 
   .resume-label-sm {
-    @apply font-bold text-xl text-neutral-800 mb-4;
+    @apply font-bold text-xl text-zinc-800 mb-4;
   }
 
   .resume-section {
@@ -28,6 +28,6 @@
   }
 
   .resume-section-body {
-    @apply p-4 bg-neutral-200/30 rounded-md text-neutral-700;
+    @apply p-4 bg-neutral-200/30 rounded-md text-zinc-700;
   }
 }

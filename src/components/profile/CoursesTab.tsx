@@ -14,7 +14,7 @@ const CoursesTab = () => {
           className={`${
             activeTab === tab
               ? "bg-primary-50 hover:bg-primary-100 text-primary-500"
-              : "bg-zinc-100 hover:bg-neutral-200/60 text-gray-800"
+              : "bg-zinc-100 hover:bg-neutral-200/60 text-zinc-800"
           } cursor-pointer p-2 text-sm rounded-md mr-2`}
         >
           {tab}

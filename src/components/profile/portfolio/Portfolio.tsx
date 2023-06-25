@@ -8,11 +8,11 @@ const Portfolio = () => {
       {/* STATS */}
       <div className="portfolio-section">
         <div className="portfolio-label">Stats</div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {stats.map((stat, i) => (
             <div
               key={stat.label + stat.value}
-              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
+              className="bg-zinc-100  text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
             >
               <Image src={stat.icon} width={32} height={32} alt={stat.label} />
               <div className="flex flex-col ml-1">
@@ -28,15 +28,15 @@ const Portfolio = () => {
 
       {/* PROJECTS */}
       <div className="portfolio-section">
-        <div className="flex items-center justify-between">
+        <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Projects</div>
           <div className="portfolio-label-action">Create new project</div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid  grid-cols-1 sm:grid-cols-2 gap-4">
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-4 text-sm rounded-md"
+              className="bg-zinc-100  text-zinc-700 cursor-pointer p-4 text-sm rounded-md"
             >
               <div
                 style={{
@@ -53,7 +53,7 @@ const Portfolio = () => {
                 />
               </div>
 
-              <div className="text-neutral-900 font-semibold text-lg mt-2">
+              <div className="text-zinc-900 font-semibold text-lg mt-2">
                 {project.title}
               </div>
               <div className="flex mt-1">
@@ -80,15 +80,15 @@ const Portfolio = () => {
 
       {/* PLAYGROUNDS */}
       <div className="portfolio-section">
-        <div className="flex items-center justify-between">
+        <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Playgrounds</div>
           <div className="portfolio-label-action">Create new playground</div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
           {playgrounds.map((playground) => (
             <div
               key={playground.title}
-              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start"
+              className="bg-zinc-100 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row"
             >
               <Image
                 src={playground.logo}
@@ -118,7 +118,7 @@ const Portfolio = () => {
                       />
                     </div>
                   ))}
-                  <div className="ml-1 text-sm text-neutral-600">
+                  <div className="ml-1 text-sm text-zinc-600">
                     Shared with{" "}
                     {playground.sharedWith.slice(0, 2).map((user) => (
                       <span className="font-bold" key={user.name + "name"}>
@@ -141,15 +141,15 @@ const Portfolio = () => {
 
       {/* CERTIFICATES */}
       <div className="portfolio-section">
-        <div className="flex items-center justify-between">
+        <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Certificates</div>
           <div className="portfolio-label-action">Add new certificate</div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
           {certificates.map((certificate) => (
             <div
               key={certificate.title}
-              className="bg-zinc-100 hover:bg-neutral-200/70 text-zinc-700 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
+              className="bg-zinc-100  text-zinc-700 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
             >
               <Image
                 src={certificate.logo}
