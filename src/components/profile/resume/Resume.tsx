@@ -31,6 +31,26 @@ const Resume = () => {
     },
   ];
 
+  const education = [
+    {
+      schoolName: "Harvard University",
+      schoolLocation: "Cambridge, GA",
+      certification: "Bachelor Degree, Computer Science (Bsc)",
+      duration: "May 2020 - Present",
+      logo: "/harvard.png",
+      description:
+        "Emory Admissions Fellow; assisted Dean of Admissions with student applications and Emory’s marketing strategy in the roll out of the university’s new website",
+    },
+    {
+      schoolName: "Mister Bim High School",
+      schoolLocation: "Atlanta, GA",
+      certification: null,
+      duration: "September 2016 - 2020",
+      logo: "/harvard.png",
+      description: null,
+    },
+  ];
+
   return (
     <div>
       {/* ABOUT */}
@@ -95,6 +115,45 @@ const Resume = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* EDUCATION */}
+      <div className="resume-section">
+        <div className="resume-label">Education</div>
+        {education.map((edu) => (
+          <div
+            key={edu.schoolName}
+            className="resume-section-body flex items-start mb-4"
+          >
+            <div className="mr-3">
+              <Image
+                src={edu.logo}
+                width={40}
+                height={40}
+                alt={edu.schoolName}
+              />
+            </div>
+            <div className="flex-1 flex flex-col items-start">
+              <div className="font-medium text-neutral-800 text-lg">
+                {edu.schoolName}
+              </div>
+              <div className="flex items-center justify-between w-full">
+                <div className="text-neutral-700 text-sm">
+                  {edu.schoolLocation}{" "}
+                  {edu.certification && `• ${edu.certification}`}
+                </div>
+                <div className="text-neutral-700 text-sm font-semibold">
+                  {edu.duration}
+                </div>
+              </div>
+              {edu.description && (
+                <div className="text-neutral-600 text-sm mt-4">
+                  {edu.description}
                 </div>
               )}
             </div>
