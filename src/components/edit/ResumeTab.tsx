@@ -26,6 +26,12 @@ const ResumeTab = () => {
   const [skill, setSkill] = useState<string>("");
   const [skills, setSkills] = useState<string[]>(user.skills);
 
+  const [interest, setInterest] = useState<string>("");
+  const [interests, setInterests] = useState<string[]>(user.resume.interests);
+
+  const [language, setLanguage] = useState<string>("");
+  const [languages, setLanguages] = useState<string[]>(user.resume.languages);
+
   return (
     <div>
       <div className="flex flex-col">
@@ -226,6 +232,50 @@ const ResumeTab = () => {
               />
               {skill}
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="text-zinc-900 font-bold text-2xl mt-6">Interests</div>
+        <div className="mt-2 relative ">
+          <input
+            type="text"
+            id="default-search"
+            className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+            placeholder="Eg.TedTalks"
+            value={interest}
+            onChange={(e) => setInterest(e.target.value)}
+          />
+          <div
+            onClick={() => {
+              if (interest) {
+                setInterests([...interests, interest]);
+                setInterest("");
+              }
+            }}
+            className="flex items-center justify-center bg-primary-400 hover:bg-primary-300 text-white rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+          >
+            Add Interest
+          </div>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {interests.map((interest) => (
+            <span
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to remove this interest"
+                  ) === true
+                ) {
+                  setInterests(interests.filter((item) => item !== interest));
+                }
+              }}
+              key={interest}
+              className="bg-zinc-100 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
+            >
+              {interest}
+            </span>
           ))}
         </div>
       </div>
