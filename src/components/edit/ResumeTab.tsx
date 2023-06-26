@@ -25,8 +25,8 @@ const ResumeTab = () => {
     user.resume.education
   );
 
-  const [shortIntro, setShortIntro] = useState("");
-  const [longIntro, setLongIntro] = useState("");
+  const [shortIntro, setShortIntro] = useState(user.resume.shortIntro);
+  const [longIntro, setLongIntro] = useState(user.resume.longIntro);
 
   const [skill, setSkill] = useState<string>("");
   const [skills, setSkills] = useState<string[]>(user.skills);
