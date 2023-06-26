@@ -31,7 +31,7 @@ export const DummyUser = {
   },
   configuration: {
     showFollowers: true,
-    showXP: true,
+    showXP: false,
     showAchievementBadges: true,
   },
   stats: {

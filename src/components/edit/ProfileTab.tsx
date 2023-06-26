@@ -19,6 +19,16 @@ const ProfileTab = () => {
   const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>();
   const profilePicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
 
+  const [showFollowers, setShowFollowers] = useState(
+    user.configuration.showFollowers
+  );
+
+  const [showXP, setShowXP] = useState(user.configuration.showXP);
+
+  const [showAchievementBadges, setShowAchievementBadges] = useState(
+    user.configuration.showAchievementBadges
+  );
+
   // SAVE PROFILE DATA
   const saveChanges = async () => {
     const oldUserRaw = localStorage.getItem("user");
@@ -31,6 +41,9 @@ const ProfileTab = () => {
       newUser.gender = gender;
       newUser.location = location;
       newUser.stats.longestStreak += 1;
+      newUser.configuration.showFollowers = showFollowers;
+      newUser.configuration.showXP = showXP;
+      newUser.configuration.showAchievementBadges = showAchievementBadges;
 
       if (!tempProfilePic) {
         newUser.profilePic = null;
@@ -213,32 +226,74 @@ const ProfileTab = () => {
           Select which sections and content should show on your profile page.
         </div>
         <div className="bg-zinc-100 mt-4 rounded-md px-4 py-2">
-          {sectionControls.map((control) => (
-            <div
-              key={control.title}
-              className="flex items-center justify-between my-4"
-            >
-              <div>
-                <div className="text-zinc-900 font-semibold">
-                  {control.title}
-                </div>
-                <div className="text-zinc-600 font-light text-sm">
-                  {control.subTitle}
-                </div>
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="text-zinc-900 font-semibold">
+                Followers and following
               </div>
-              <div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    value=""
-                    className="sr-only peer"
-                    checked
-                  />
-                  <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-300   peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-                </label>
+              <div className="text-zinc-600 font-light text-sm">
+                Shows your followers and the users you follow on codedamn
               </div>
             </div>
-          ))}
+            <div>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="sr-only peer"
+                  checked={showFollowers}
+                  onChange={(e) => setShowFollowers(e.currentTarget.checked)}
+                />
+                <div className="w-11 h-6 bg-gray-200 rounded-full peer    peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+              </label>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="text-zinc-900 font-semibold">XP</div>
+              <div className="text-zinc-600 font-light text-sm">
+                Shows the XP you have earned
+              </div>
+            </div>
+            <div>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="sr-only peer"
+                  checked={showXP}
+                  onChange={(e) => setShowXP(e.currentTarget.checked)}
+                />
+                <div className="w-11 h-6 bg-gray-200 rounded-full peer    peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+              </label>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between my-4">
+            <div>
+              <div className="text-zinc-900 font-semibold">
+                Achievement badges
+              </div>
+              <div className="text-zinc-600 font-light text-sm">
+                Shows your relative percentile and proficiency
+              </div>
+            </div>
+            <div>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="sr-only peer"
+                  checked={showAchievementBadges}
+                  onChange={(e) =>
+                    setShowAchievementBadges(e.currentTarget.checked)
+                  }
+                />
+                <div className="w-11 h-6 bg-gray-200 rounded-full peer    peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
       <div className="mt-4 flex items-center justify-end">
