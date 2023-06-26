@@ -37,10 +37,15 @@ const ProfileTab = () => {
       newUser.dob = dob;
       newUser.gender = gender;
       newUser.location = location;
+      newUser.stats.longestStreak += 1;
 
-      if (selectedProfilePic) {
-        const base64data = (await getBase64(selectedProfilePic)) as string;
-        newUser.profilePic = base64data;
+      if (!tempProfilePic) {
+        newUser.profilePic = null;
+      } else {
+        if (selectedProfilePic) {
+          const base64data = (await getBase64(selectedProfilePic)) as string;
+          newUser.profilePic = base64data;
+        }
       }
 
       localStorage.setItem("user", JSON.stringify(newUser));
@@ -54,6 +59,10 @@ const ProfileTab = () => {
     if (window.confirm("Are you sure you want to discard changes?") === true) {
       router.push("/");
     }
+  };
+
+  const deleteProfilePic = () => {
+    setTempProfilePic("");
   };
 
   const profilePicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
@@ -120,7 +129,7 @@ const ProfileTab = () => {
             }}
           />
           <button
-            onClick={() => alert("Contact")}
+            onClick={() => deleteProfilePic()}
             className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md text-sm ml-2"
           >
             Delete

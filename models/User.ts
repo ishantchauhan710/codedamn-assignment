@@ -57,7 +57,7 @@ export type User = {
   profession: string;
   dob: string;
   gender: string;
-  profilePic: string;
+  profilePic: string | null;
   coverPic: string;
   proAccountActivated: boolean,
   skills: string[];

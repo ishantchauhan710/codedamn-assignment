@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { ReactNode } from "react";
 
 interface ProfileImageProps {
-  src: string;
+  src: string | null;
   width: number;
   height: number;
   alt: string;
@@ -29,7 +29,7 @@ const ProfileImage = ({
         className={`relative rounded-full overflow-hidden bg-gray-300 border-[4px] border-white ${className}`}
       >
         <Image
-          src={src}
+          src={src?src:"/icons/avatars/no_avatar.jpg"}
           alt={alt}
           style={{ objectFit: "cover" }}
           fill
