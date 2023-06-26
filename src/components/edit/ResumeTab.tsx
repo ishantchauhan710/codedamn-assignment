@@ -280,6 +280,58 @@ const ResumeTab = () => {
         </div>
       </div>
 
+      <div>
+        <div className="text-zinc-900 font-bold text-2xl mt-6">Languages</div>
+        <div className="mt-2 relative ">
+          <input
+            type="text"
+            id="default-search"
+            className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+            placeholder="Eg. English"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          />
+          <div
+            onClick={() => {
+              if (language) {
+                setLanguages([...languages, language]);
+                setLanguage("");
+              }
+            }}
+            className="flex items-center justify-center bg-primary-400 hover:bg-primary-300 text-white rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+          >
+            Add Language
+          </div>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {languages.map((language) => (
+            <div
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to remove this language"
+                  ) === true
+                ) {
+                  setLanguages(languages.filter((item) => item !== language));
+                }
+              }}
+              key={language}
+              className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
+            >
+              <Image
+                quality={100}
+                src={getLogoFromLanguage(language)}
+                width={20}
+                height={20}
+                alt={language}
+                className="mr-2"
+              />
+              {language}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {showCreateExperienceModal && (
         <CreateExperienceModal
           experience={experience}
