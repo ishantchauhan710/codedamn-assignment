@@ -1,17 +1,11 @@
+import { useAppContext } from "context/AppContext";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import ProfileImage from "../util/ProfilePicture";
 
 const ProfileSection = () => {
-  const skills = [
-    "HTML5",
-    "CSS3",
-    "Javascript",
-    "React",
-    "Python",
-    "C++",
-    "Mongo",
-    "NodeJs",
-  ];
+  const { user } = useAppContext();
 
   const socials = [
     "/icons/social_media_platforms/Google.png",
@@ -24,24 +18,29 @@ const ProfileSection = () => {
   return (
     <div className="shadow-sm">
       <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-40 rounded-t-xl">
-        <button className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4">
+        <Link
+          href="/profile"
+          className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4"
+        >
           <Image
             src="/icons/app/edit_profile_icon.png"
             width={16}
             height={16}
-            alt="edit profile"
+            alt="edit cover"
             className="mr-2"
           />
           Edit cover
-        </button>
+        </Link>
       </div>
       <div className="flex flex-col md:flex-row border border-neutral-200 shadow-sm rounded-b-xl">
         <div className="h-[70px] md:h-[0px] md:flex-[0.18] relative">
-          <Image
-            src="/icons/avatars/profile_big.png"
+          <ProfileImage
+            src={user.profilePic}
             width={140}
             height={140}
             alt="profile"
+            badgeValue={7}
+            badgePosition="top"
             className="absolute mt-[-50px] ml-4 cursor-pointer"
           />
         </div>
@@ -71,7 +70,7 @@ const ProfileSection = () => {
             Mumbai, India
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
-            {skills.map((skill) => (
+            {user.skills.map((skill) => (
               <span
                 onClick={() => alert(skill)}
                 key={skill}

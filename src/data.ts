@@ -5,7 +5,7 @@ export const DummyUser = {
   profession: "Student",
   dob: "21/12/1952",
   gender: "Male",
-  profilePic: "",
+  profilePic: "/images/profilepic1.jpg",
   coverPic: "",
   skills: [
     "HTML5",
