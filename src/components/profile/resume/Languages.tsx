@@ -1,3 +1,4 @@
+import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
@@ -14,9 +15,9 @@ const Languages = () => {
             key={language}
             className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
           >
-                <Image
-        quality={100}
-              src="/icons/flags/china.png"
+            <Image
+              quality={100}
+              src={getLogoFromLanguage(language)}
               width={20}
               height={20}
               alt={language}

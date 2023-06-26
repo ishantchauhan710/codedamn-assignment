@@ -14,7 +14,7 @@ const ResumeTab = () => {
     setShowCreateExperienceModal,
     showCreateEducationModal,
     setShowCreateEducationModal,
-    reloadUser
+    reloadUser,
   } = useAppContext();
 
   const [experience, setExperience] = useState<ResumeExperience[]>(
@@ -64,7 +64,7 @@ const ResumeTab = () => {
       newUser.resume.interests = interests;
       newUser.resume.languages = languages;
       localStorage.setItem("user", JSON.stringify(newUser));
-      reloadUser()
+      reloadUser();
       router.push("/");
     } else {
       alert("Local storage error");
@@ -86,7 +86,7 @@ const ResumeTab = () => {
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col">
+      <div className="mt-8 flex flex-col">
         <div className="text-zinc-900 font-medium">Short Intro</div>
         <input
           type="text"
@@ -97,18 +97,18 @@ const ResumeTab = () => {
         />
       </div>
 
-      <div className="mt-6 flex flex-col">
+      <div className="mt-8 flex flex-col">
         <div className="text-zinc-900 font-medium">Detailed Intro</div>
-        <input
-          type="text"
-          className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+        <textarea
+          rows={4}
+          className="resize-none border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
           placeholder="A more descriptive introduction about yourself"
           value={longIntro}
           onChange={(e) => setLongIntro(e.target.value)}
         />
       </div>
 
-      <div className="flex items-end justify-between mt-6">
+      <div className="flex items-end justify-between mt-8">
         <div className="text-zinc-900 font-bold text-2xl">Experience</div>
         <div
           className="text-primary-500 cursor-pointer"
@@ -145,7 +145,7 @@ const ResumeTab = () => {
             <div className="mr-3 mb-1 sm:mb-0">
               <Image
                 quality={100}
-                src="/icons/social_media_platforms/Facebook.png"
+                src={getLogoFromLanguage(exp.company)}
                 width={40}
                 height={40}
                 alt={exp.company}
@@ -185,7 +185,7 @@ const ResumeTab = () => {
         ))}
       </div>
 
-      <div className="flex items-end justify-between mt-6">
+      <div className="flex items-end justify-between mt-8">
         <div className="text-zinc-900 font-bold text-2xl">Education</div>
         <div
           className="text-primary-500 cursor-pointer"
@@ -199,12 +199,30 @@ const ResumeTab = () => {
         {education.map((edu) => (
           <div
             key={edu.schoolName}
-            className="resume-section-body block sm:flex items-start mb-4"
+            className="relative resume-section-body block sm:flex items-start mb-4"
           >
+            <div
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to delete this experience"
+                  ) === true
+                ) {
+                  setEducation(
+                    education.filter(
+                      (item) => item.description !== edu.description
+                    )
+                  );
+                }
+              }}
+              className="absolute mr-2 mt-[-10px] right-0 text-zinc-800 hover:text-zinc-900 text-2xl cursor-pointer"
+            >
+              x
+            </div>
             <div className="mr-3 mb-2">
               <Image
                 quality={100}
-                src="/images/harvard.png"
+                src={getLogoFromLanguage(edu.schoolName.toLowerCase())}
                 width={40}
                 height={40}
                 alt={edu.schoolName}
@@ -234,7 +252,7 @@ const ResumeTab = () => {
       </div>
 
       <div>
-        <div className="text-zinc-900 font-bold text-2xl mt-6">Tech Skills</div>
+        <div className="text-zinc-900 font-bold text-2xl mt-8">Tech Skills</div>
         <div className="mt-2 relative ">
           <input
             type="text"
@@ -286,7 +304,7 @@ const ResumeTab = () => {
       </div>
 
       <div>
-        <div className="text-zinc-900 font-bold text-2xl mt-6">Interests</div>
+        <div className="text-zinc-900 font-bold text-2xl mt-8">Interests</div>
         <div className="mt-2 relative ">
           <input
             type="text"
@@ -330,7 +348,7 @@ const ResumeTab = () => {
       </div>
 
       <div>
-        <div className="text-zinc-900 font-bold text-2xl mt-6">Languages</div>
+        <div className="text-zinc-900 font-bold text-2xl mt-8">Languages</div>
         <div className="mt-2 relative ">
           <input
             type="text"

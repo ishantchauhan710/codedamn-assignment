@@ -1,3 +1,4 @@
+import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
@@ -13,9 +14,9 @@ const Education = () => {
           className="resume-section-body block sm:flex items-start mb-4"
         >
           <div className="mr-3 mb-2">
-                <Image
-        quality={100}
-              src="/images/harvard.png"
+            <Image
+              quality={100}
+              src={getLogoFromLanguage(edu.schoolName)}
               width={40}
               height={40}
               alt={edu.schoolName}

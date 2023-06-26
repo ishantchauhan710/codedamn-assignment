@@ -10,7 +10,11 @@ export const getBase64 = (file: File) => {
 };
 
 export const getLogoFromLanguage = (language: string): string => {
-  const skills = [
+  const data = [
+    {
+      title: "error",
+      logo: "/icons/avatars/placeholder.png",
+    },
     {
       title: "HTML5",
       logo: "/icons/programming_languages/html-5.png",
@@ -51,12 +55,41 @@ export const getLogoFromLanguage = (language: string): string => {
       title: "Java",
       logo: "/icons/programming_languages/java.png",
     },
+    {
+      title: "harvard",
+      logo: "/images/harvard.png",
+    },
+    {
+      title: "harvard university",
+      logo: "/images/harvard.png",
+    },
+    {
+      title: "English",
+      logo: "/icons/flags/english.png",
+    },
+    {
+      title: "Mandarin",
+      logo: "/icons/flags/mandarin.png",
+    },
+    {
+      title: "Cantonese Chinese",
+      logo: "/icons/flags/china.png",
+    },
+    {
+      title: "Facebook",
+      logo: "/icons/social_media_platforms/Facebook.png",
+    },
+    {
+      title: "Google",
+      logo: "/icons/social_media_platforms/Google.png",
+    },
   ];
-  let logo: string = skills[0].logo;
 
-  skills.forEach((skill) => {
-    if (language.toLowerCase() === skill.title.toLowerCase()) {
-      logo = skill.logo;
+  let logo: string = data[0].logo;
+
+  data.forEach((item) => {
+    if (language.toLowerCase() === item.title.toLowerCase()) {
+      logo = item.logo;
       return;
     }
   });

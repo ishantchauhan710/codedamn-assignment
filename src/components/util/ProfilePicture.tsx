@@ -50,7 +50,7 @@ const ProfileImage = ({
           } ${
             width > 60 && badgePosition === "top"
               ? "mt-[-20px] mr-[-18px]"
-              : "mt-[-14px] mr-[-16px]"
+              : "mt-[-13px] mr-[-14px]"
           } `}
         >
           <div className="relative flex items-center justify-center">

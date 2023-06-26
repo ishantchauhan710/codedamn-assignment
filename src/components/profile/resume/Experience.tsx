@@ -1,3 +1,4 @@
+import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
@@ -14,9 +15,9 @@ const Experience = () => {
           className="resume-section-body block sm:flex items-start mb-4"
         >
           <div className="mr-3 mb-1 sm:mb-0">
-                <Image
-        quality={100}
-              src="/icons/social_media_platforms/Facebook.png"
+            <Image
+              quality={100}
+              src={getLogoFromLanguage(exp.company)}
               width={40}
               height={40}
               alt={exp.company}
