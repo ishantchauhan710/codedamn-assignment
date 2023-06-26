@@ -144,6 +144,10 @@ export const DummyUser = {
     },
   ],
   resume: {
+    shortIntro:
+      "A self-driven, versatile, reliable, diligent individual who is calm and cheerful with a team-minded approach to work and getting things done. A self-driven, versatile, reliable, diligent individual who is calm and cheerful with a team-minded approach to work and getting things done",
+    longIntro:
+      "A student who is passionate and with a keen eye for design. A self-driven, versatile, reliable, diligent individual who is calm and cheerful with a team-minded approach to work and getting things done. A self-driven, versatile, reliable, diligent individual who is calm and cheerful with a team-minded approach to work and getting things done",
     experience: [
       {
         role: "Front-end developer",

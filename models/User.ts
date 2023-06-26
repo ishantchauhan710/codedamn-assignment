@@ -41,6 +41,8 @@ export type ResumeEducation = {
 };
 
 export type Resume = {
+  shortIntro: string,
+  longIntro: string,
   experience: ResumeExperience[];
   education: ResumeEducation[];
   interests: string[];
