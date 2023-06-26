@@ -2,7 +2,8 @@ import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import ProfileImage from "../util/ProfilePicture";
 
 const ProfileTab = () => {
   const { user } = useAppContext();
@@ -13,8 +14,20 @@ const ProfileTab = () => {
   const [dob, setDob] = useState(user.dob);
   const [gender, setGender] = useState(user.gender);
   const [location, setLocation] = useState(user.location);
+  const [tempProfilePic, setTempProfilePic] = useState(user.profilePic);
 
-  const saveChanges = () => {
+  const getBase64 = (file: File) => {
+    return new Promise((resolve, reject) => {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+    });
+  };
+
+  const saveChanges = async () => {
     const oldUserRaw = localStorage.getItem("user");
     if (oldUserRaw) {
       const newUser: User = JSON.parse(oldUserRaw);
@@ -24,12 +37,44 @@ const ProfileTab = () => {
       newUser.dob = dob;
       newUser.gender = gender;
       newUser.location = location;
+
+      if (selectedProfilePic) {
+        const base64data = (await getBase64(selectedProfilePic)) as string;
+        newUser.profilePic = base64data;
+      }
+
       localStorage.setItem("user", JSON.stringify(newUser));
       router.push("/");
     } else {
       alert("Local storage error");
     }
   };
+
+  const cancel = () => {
+    if (window.confirm("Are you sure you want to discard changes?") === true) {
+      router.push("/");
+    }
+  };
+
+  const profilePicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>();
+
+  const uploadProfilePic = () => {
+    if (profilePicInputRef.current) {
+      profilePicInputRef.current.click();
+    }
+  };
+
+  const updateTempProfilePic = async () => {
+    if (selectedProfilePic) {
+      const base64data = (await getBase64(selectedProfilePic)) as string;
+      setTempProfilePic(base64data);
+    }
+  };
+
+  useEffect(() => {
+    updateTempProfilePic();
+  }, [selectedProfilePic]);
 
   const sectionControls = [
     {
@@ -49,19 +94,31 @@ const ProfileTab = () => {
   return (
     <div>
       <div className="flex items-center flex-col sm:flex-row">
-        <Image
-          src="/icons/avatars/avatar_plain.png"
+        <ProfileImage
+          src={tempProfilePic}
           width={72}
           height={72}
           alt="profile"
+          showBadge={false}
         />
         <div className="mt-4 sm:mt-0 flex">
           <button
-            onClick={() => alert("Contact")}
+            onClick={uploadProfilePic}
             className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md text-sm sm:ml-4"
           >
             Upload new picture
           </button>
+          <input
+            type="file"
+            accept="image/*;capture=camera"
+            hidden
+            ref={profilePicInputRef}
+            onChange={(e) => {
+              if (e.target.files) {
+                setSelectedProfilePic(e.target.files[0]);
+              }
+            }}
+          />
           <button
             onClick={() => alert("Contact")}
             className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md text-sm ml-2"
@@ -179,14 +236,7 @@ const ProfileTab = () => {
       </div>
       <div className="mt-4 flex items-center justify-end">
         <button
-          onClick={() => {
-            if (
-              window.confirm("Are you sure you want to discard changes?") ===
-              true
-            ) {
-              router.push("/");
-            }
-          }}
+          onClick={cancel}
           className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
         >
           Cancel

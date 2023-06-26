@@ -30,6 +30,12 @@ const SocialsTab = () => {
     }
   };
 
+  const cancel = () => {
+    if (window.confirm("Are you sure you want to discard changes?") === true) {
+      router.push("/");
+    }
+  };
+
   return (
     <div>
       <div className="mb-6 flex flex-col">
@@ -99,14 +105,7 @@ const SocialsTab = () => {
       </div>
       <div className="mt-4 flex items-center justify-end">
         <button
-          onClick={() => {
-            if (
-              window.confirm("Are you sure you want to discard changes?") ===
-              true
-            ) {
-              router.push("/");
-            }
-          }}
+          onClick={cancel}
           className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
         >
           Cancel
