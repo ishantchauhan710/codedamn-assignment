@@ -42,7 +42,7 @@ const ProfileTab = () => {
       }
 
       localStorage.setItem("user", JSON.stringify(newUser));
-      reloadUser()
+      reloadUser();
       router.push("/");
     } else {
       alert("Local storage error");
@@ -99,7 +99,7 @@ const ProfileTab = () => {
   ];
 
   return (
-    <div>
+    <React.Fragment>
       <div className="flex items-center flex-col sm:flex-row">
         <ProfileImage
           src={tempProfilePic}
@@ -135,7 +135,7 @@ const ProfileTab = () => {
         </div>
       </div>
 
-      <div>
+      <React.Fragment>
         <div className="mt-6 flex flex-col">
           <div className="text-zinc-900 font-medium">Display name</div>
           <input
@@ -204,7 +204,7 @@ const ProfileTab = () => {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-      </div>
+      </React.Fragment>
       <div className="mt-6">
         <div className="text-zinc-900 font-semibold text-xl">
           Section Visibility
@@ -218,15 +218,15 @@ const ProfileTab = () => {
               key={control.title}
               className="flex items-center justify-between my-4"
             >
-              <div>
+              <React.Fragment>
                 <div className="text-zinc-900 font-semibold">
                   {control.title}
                 </div>
                 <div className="text-zinc-600 font-light text-sm">
                   {control.subTitle}
                 </div>
-              </div>
-              <div>
+              </React.Fragment>
+              <React.Fragment>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
@@ -236,7 +236,7 @@ const ProfileTab = () => {
                   />
                   <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-primary-300   peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
                 </label>
-              </div>
+              </React.Fragment>
             </div>
           ))}
         </div>
@@ -255,7 +255,7 @@ const ProfileTab = () => {
           Save changes
         </button>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
