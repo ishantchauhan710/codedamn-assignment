@@ -2,9 +2,10 @@ import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React, { useState } from "react";
 import CreateExperienceModal from "../common/modals/CreateExperienceModal";
-import { ResumeEducation, ResumeExperience } from "models/User";
+import { ResumeEducation, ResumeExperience, User } from "models/User";
 import CreateEducationModal from "../common/modals/CreateEducationModal";
 import { getLogoFromLanguage } from "@/util/imageUtil";
+import { useRouter } from "next/router";
 
 const ResumeTab = () => {
   const {
@@ -13,6 +14,7 @@ const ResumeTab = () => {
     setShowCreateExperienceModal,
     showCreateEducationModal,
     setShowCreateEducationModal,
+    reloadUser
   } = useAppContext();
 
   const [experience, setExperience] = useState<ResumeExperience[]>(
@@ -23,6 +25,9 @@ const ResumeTab = () => {
     user.resume.education
   );
 
+  const [shortIntro, setShortIntro] = useState("");
+  const [longIntro, setLongIntro] = useState("");
+
   const [skill, setSkill] = useState<string>("");
   const [skills, setSkills] = useState<string[]>(user.skills);
 
@@ -31,6 +36,46 @@ const ResumeTab = () => {
 
   const [language, setLanguage] = useState<string>("");
   const [languages, setLanguages] = useState<string[]>(user.resume.languages);
+
+  const router = useRouter();
+
+  const saveChanges = () => {
+    if (
+      !shortIntro ||
+      !longIntro ||
+      experience.length < 1 ||
+      education.length < 1 ||
+      skills.length < 1 ||
+      interests.length < 1 ||
+      languages.length < 1
+    ) {
+      alert("Please provide all the details");
+      return;
+    }
+
+    const oldUserRaw = localStorage.getItem("user");
+    if (oldUserRaw) {
+      const newUser: User = JSON.parse(oldUserRaw);
+      newUser.resume.shortIntro = shortIntro;
+      newUser.resume.longIntro = longIntro;
+      newUser.resume.experience = experience;
+      newUser.resume.education = education;
+      newUser.skills = skills;
+      newUser.resume.interests = interests;
+      newUser.resume.languages = languages;
+      localStorage.setItem("user", JSON.stringify(newUser));
+      reloadUser()
+      router.push("/");
+    } else {
+      alert("Local storage error");
+    }
+  };
+
+  const cancel = () => {
+    if (window.confirm("Are you sure you want to discard changes?") === true) {
+      router.push("/");
+    }
+  };
 
   return (
     <div>
@@ -47,6 +92,8 @@ const ResumeTab = () => {
           type="text"
           className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
           placeholder="A short description about yourself"
+          value={shortIntro}
+          onChange={(e) => setShortIntro(e.target.value)}
         />
       </div>
 
@@ -56,6 +103,8 @@ const ResumeTab = () => {
           type="text"
           className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
           placeholder="A more descriptive introduction about yourself"
+          value={longIntro}
+          onChange={(e) => setLongIntro(e.target.value)}
         />
       </div>
 
@@ -331,7 +380,20 @@ const ResumeTab = () => {
           ))}
         </div>
       </div>
-
+      <div className="mt-4 flex items-center justify-end">
+        <button
+          onClick={cancel}
+          className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={() => saveChanges()}
+          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md ml-4"
+        >
+          Save changes
+        </button>
+      </div>
       {showCreateExperienceModal && (
         <CreateExperienceModal
           experience={experience}
