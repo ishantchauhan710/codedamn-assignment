@@ -1,11 +1,13 @@
 import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const PortfolioTab = () => {
   const { user } = useAppContext();
   const [selectedPlaygrounds, setSelectedPlaygrounds] = useState<string[]>([]);
+  const router = useRouter();
 
   const handlePlaygroundSelection = (key: string) => {
     if (selectedPlaygrounds.includes(key)) {
@@ -15,6 +17,12 @@ const PortfolioTab = () => {
       setSelectedPlaygrounds(filteredPlaygrounds);
     } else {
       setSelectedPlaygrounds([...selectedPlaygrounds, key]);
+    }
+  };
+
+  const cancel = () => {
+    if (window.confirm("Are you sure you want to discard changes?") === true) {
+      router.push("/");
     }
   };
 
@@ -45,10 +53,10 @@ const PortfolioTab = () => {
               selectedPlaygrounds.includes(playground.title + index)
                 ? "border-primary bg-primary-100/40"
                 : "bg-zinc-100 border-zinc-100"
-            } text-zinc-700 relative cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row border-2`}
+            } text-zinc-700 relative cursor-pointer p-2 text-sm rounded-md mr-0 md:mr-2 flex items-start flex-col sm:flex-row border-2`}
           >
             {selectedPlaygrounds.includes(playground.title + index) && (
-              <div className="absolute bg-transparent border-[5px] border-primary w-4 h-4 rounded-full right-0 mr-3 mt-1" />
+              <div className="absolute bg-transparent border-[5px] border-primary w-4 h-4 rounded-full right-0 mr-0 md:mr-3 mt-1" />
             )}
             <Image
               src={getLogoFromLanguage(playground.language)}
@@ -79,7 +87,7 @@ const PortfolioTab = () => {
                   </div>
                 ))}
                 <div className="ml-1 text-sm text-zinc-600">
-                  Shared with{" "}
+                  Shared with
                   {playground.sharedWith.slice(0, 2).map((user) => (
                     <span className="font-bold" key={user.name + "name"}>
                       {user.name}
@@ -99,7 +107,6 @@ const PortfolioTab = () => {
           </div>
         ))}
       </div>
-
       {/* PROJECTS */}
       <div className="flex items-end justify-between mt-10">
         <div className="text-zinc-900 font-bold text-2xl">Projects</div>
@@ -173,6 +180,20 @@ const PortfolioTab = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-4 flex items-center justify-end">
+        <button
+          onClick={cancel}
+          className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={() => router.push("/")}
+          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md ml-4"
+        >
+          Save changes
+        </button>
       </div>
     </div>
   );

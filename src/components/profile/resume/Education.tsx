@@ -26,7 +26,7 @@ const Education = () => {
             </div>
             <div className="block sm:flex items-center justify-between w-full">
               <div className="text-zinc-700 text-sm">
-                {edu.schoolLocation}{" "}
+                {edu.schoolLocation}
                 {edu.certification && `• ${edu.certification}`}
               </div>
               <div className="text-zinc-700 text-sm font-semibold">

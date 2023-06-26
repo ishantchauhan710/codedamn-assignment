@@ -51,7 +51,7 @@ const Playgrounds = () => {
                   </div>
                 ))}
                 <div className="ml-1 text-sm text-zinc-600">
-                  Shared with{" "}
+                  Shared with
                   {playground.sharedWith.slice(0, 2).map((user) => (
                     <span className="font-bold" key={user.name + "name"}>
                       {user.name}

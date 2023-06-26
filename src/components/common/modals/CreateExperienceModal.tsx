@@ -1,0 +1,140 @@
+import { isValidateUrl } from "@/util/regexUtil";
+import { useAppContext } from "context/AppContext";
+import { User, UserProject } from "models/User";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+
+const CreateExperienceModal = () => {
+  const { setShowCreateExperienceModal, reloadUser } = useAppContext();
+
+  const [projectTitle, setProjectTitle] = useState<string>("");
+  const [responsibilities, setResponsibilities] = useState<string[]>([
+    "A",
+    "B",
+  ]);
+
+  return (
+    <div className="fixed top-0 left-0 right-0 bg-black/70 w-full h-full z-[21] flex items-center justify-center">
+      <div className="bg-white rounded-md w-4/5 shadow-md">
+        <div className="flex items-center justify-between p-4">
+          <div className="text-zinc-800 font-bold text-2xl">Add experience</div>
+          <div
+            onClick={() => setShowCreateExperienceModal(false)}
+            className="w-8 h-8 flex items-center justify-center text-zinc-800 text-2xl bg-zinc-300 hover:bg-zinc-400/80 cursor-pointer rounded-md"
+          >
+            x
+          </div>
+        </div>
+        <hr className="h-[1px] bg-gray-200" />
+        <div className="p-4 h-[450px] overflow-y-auto">
+          <div className="mb-6 flex flex-col">
+            <div className="text-zinc-900 font-medium">Company name</div>
+            <input
+              type="text"
+              className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+              placeholder="Eg. Facebook"
+              value={projectTitle}
+              onChange={(e) => setProjectTitle(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6 flex flex-col">
+            <div className="text-zinc-900 font-medium">Role name</div>
+            <input
+              type="text"
+              className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+              placeholder="Eg. Junior React Developer"
+              value={projectTitle}
+              onChange={(e) => setProjectTitle(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6 flex flex-col">
+            <div className="text-zinc-900 font-medium">Describe your work</div>
+            <textarea
+              rows={2}
+              className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+              placeholder="Tell about what all stuff you used to work on"
+            />
+          </div>
+
+          <div className="mb-6 flex flex-col">
+            <div className="text-zinc-900 font-medium">Company location</div>
+            <input
+              type="text"
+              className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+              placeholder="Eg. Mumbai, India"
+              value={projectTitle}
+              onChange={(e) => setProjectTitle(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6 flex flex-col">
+            <div className="text-zinc-900 font-medium">Working Period</div>
+            <div className="md:flex items-center mt-2">
+              <input
+                type="text"
+                className="w-full mr-2 border border-zinc-200 focus:outline-none rounded-md px-2 py-2"
+                placeholder="From"
+                value={projectTitle}
+                onChange={(e) => setProjectTitle(e.target.value)}
+              />
+              <input
+                type="text"
+                className="w-full md:mt-0 ml-2 border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+                placeholder="To"
+                value={projectTitle}
+                onChange={(e) => setProjectTitle(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-zinc-900 font-medium">Responsiblities</div>
+            <div className="mt-2 relative ">
+              <input
+                type="text"
+                id="default-search"
+                className="block p-2 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                placeholder="Search"
+                required
+              />
+              <div
+                className="flex items-center justify-center bg-primary-400 hover:bg-primary-300 text-white rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+                onClick={() => alert("Courses")}
+              >
+                Add Responsibility
+              </div>
+            </div>
+          </div>
+
+          <div className="px-5">
+            {responsibilities.length > 0 && (
+              <ul className="list-image-[url(/icons/app/list_bullet.png)] ml-4 mt-4">
+                {responsibilities.map((resp) => (
+                  <li className="text-zinc-600 text-lg mt-2" key={resp}>
+                    {resp}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className="mt-4 flex items-center justify-end">
+            <button
+              onClick={() => setShowCreateExperienceModal(false)}
+              className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
+            >
+              Cancel
+            </button>
+            <button className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md ml-4">
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CreateExperienceModal;

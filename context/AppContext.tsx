@@ -22,6 +22,8 @@ type AppContextType = {
   setShowCreatePlaygroundModal: React.Dispatch<React.SetStateAction<boolean>>;
   showCreateCertificateModal: boolean;
   setShowCreateCertificateModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showCreateExperienceModal: boolean;
+  setShowCreateExperienceModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -36,6 +38,9 @@ export default function AppStore(props: PropsWithChildren) {
 
   const [showCreateCertificateModal, setShowCreateCertificateModal] =
     useState(false);
+
+  const [showCreateExperienceModal, setShowCreateExperienceModal] =
+    useState(true);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -71,6 +76,8 @@ export default function AppStore(props: PropsWithChildren) {
         setShowCreatePlaygroundModal,
         showCreateCertificateModal,
         setShowCreateCertificateModal,
+        showCreateExperienceModal,
+        setShowCreateExperienceModal,
       }}
     >
       {props.children}

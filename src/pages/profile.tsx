@@ -1,5 +1,6 @@
 import PortfolioTab from "@/components/edit/PortfolioTab";
 import ProfileTab from "@/components/edit/ProfileTab";
+import ResumeTab from "@/components/edit/ResumeTab";
 import SocialsTab from "@/components/edit/SocialsTab";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
@@ -40,6 +41,7 @@ const Profile = () => {
           {activeProfileTab === "Profile" && <ProfileTab />}
           {activeProfileTab === "Socials" && <SocialsTab />}
           {activeProfileTab === "Portfolio" && <PortfolioTab />}
+          {activeProfileTab === "Resume" && <ResumeTab />}
         </div>
       </div>
       <div className="bg-zinc-100 pt-2 rounded-md w-full flex md:hidden items-center justify-around fixed bottom-0">
