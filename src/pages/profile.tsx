@@ -10,7 +10,7 @@ const Profile = () => {
   const { activeProfileTab, setActiveProfileTab } = useAppContext();
 
   return (
-    <React.Fragment>
+    <div>
       <div className="my-24 flex items-start">
         <div className="hidden md:flex flex-[0.20] mx-4">
           <div className="bg-zinc-100 py-6 rounded-md w-full">
@@ -64,7 +64,7 @@ const Profile = () => {
           </div>
         ))}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

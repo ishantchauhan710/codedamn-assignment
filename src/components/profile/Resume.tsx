@@ -12,13 +12,13 @@ const Resume = () => {
   const { user } = useAppContext();
 
   return (
-    <React.Fragment>
+    <div>
       <About />
       <Experience />
       <Education />
       <Skills />
       <Languages />
-    </React.Fragment>
+    </div>
   );
 };
 

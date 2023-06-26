@@ -35,6 +35,7 @@ const Projects = () => {
                 src={project.image}
                 alt={project.title}
                 style={{ objectFit: "cover" }}
+                className="rounded-md"
               />
             </div>
 

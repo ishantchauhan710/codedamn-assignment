@@ -8,7 +8,7 @@ const ProfileTab = () => {
   const { activeTab, setActiveTab } = useAppContext();
 
   return (
-    <React.Fragment>
+    <div>
       <div className="border border-neutral-200 shadow-sm mt-6 rounded-xl px-3 py-4">
         {tabs.map((tab) => (
           <span
@@ -26,7 +26,7 @@ const ProfileTab = () => {
       </div>
       {activeTab === "Portfolio" && <Portfolio />}
       {activeTab === "Resume" && <Resume />}
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -30,7 +30,7 @@ const PortfolioTab = () => {
   };
 
   return (
-    <React.Fragment>
+    <div>
       {/* PLAYGROUNDS */}
       <div className="flex items-end justify-between">
         <div className="text-zinc-900 font-bold text-2xl">Playgrounds</div>
@@ -130,6 +130,7 @@ const PortfolioTab = () => {
                 src={project.image}
                 alt={project.title}
                 style={{ objectFit: "cover" }}
+                className="rounded-md"
               />
             </div>
 
@@ -173,7 +174,7 @@ const PortfolioTab = () => {
           </div>
         ))}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

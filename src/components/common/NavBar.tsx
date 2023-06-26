@@ -73,7 +73,7 @@ const NavIcons = ({ user, router }: NavIconProps) => {
       </div>
 
       <div
-        className="relative mx-2 cursor-pointer"
+        className="relative mx-2 cursor-pointer mt-0.5"
         onClick={() => alert("Notifications")}
       >
         <Image
@@ -88,7 +88,7 @@ const NavIcons = ({ user, router }: NavIconProps) => {
       </div>
 
       <div
-        className="relative mx-2 cursor-pointer transition"
+        className="relative mx-2 mt-1 cursor-pointer transition"
         onClick={() => router.push("/profile")}
       >
         <ProfileImage

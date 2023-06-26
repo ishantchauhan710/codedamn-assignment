@@ -50,10 +50,10 @@ const ProfileHeaderData = () => {
       </div>
 
       {/* PROFILE HEADER DATA */}
-      <div className="flex-[0.82] m-4">
+      <div className="flex-[0.82] mx-4 my-8 md:my-4">
         <div className="flex flex-col sm:flex-row sm:items-center">
           <span className="font-bold text-3xl mr-2">{user.fullname}</span>
-          <React.Fragment>
+          <div className="mt-2 md:mt-0">
             {user.proAccountActivated && (
               <span className="bg-lime-300 px-2 py-[3px] text-sm mr-2 rounded-sm">
                 Pro
@@ -64,10 +64,10 @@ const ProfileHeaderData = () => {
                 Looking for job
               </span>
             )}
-          </React.Fragment>
+          </div>
         </div>
-        <div className="text-md text-zinc-600 mt-1">{user.about}</div>
-        <div className="text-md text-zinc-600 mt-1 flex items-center font-light">
+        <div className="text-md text-zinc-600 mt-3 md:mt-1">{user.about}</div>
+        <div className="text-md text-zinc-600 mt-2 md:mt-0 flex items-center font-light">
           <Image
             src="/icons/app/location.png"
             width={16}

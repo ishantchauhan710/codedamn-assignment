@@ -37,7 +37,7 @@ const SocialsTab = () => {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <div className="mb-6 flex flex-col">
         <div className="text-zinc-900 font-medium">Github</div>
         <input
@@ -117,7 +117,7 @@ const SocialsTab = () => {
           Save changes
         </button>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

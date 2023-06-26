@@ -10,12 +10,12 @@ import Certificates from "./portfolio/Certificates";
 
 const Portfolio = () => {
   return (
-    <React.Fragment>
+    <div>
       <Stats />
       <Projects />
       <Playgrounds />
       <Certificates />
-    </React.Fragment>
+    </div>
   );
 };
 
