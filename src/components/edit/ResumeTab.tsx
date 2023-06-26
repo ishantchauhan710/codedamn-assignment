@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import CreateExperienceModal from "../common/modals/CreateExperienceModal";
 import { ResumeEducation, ResumeExperience } from "models/User";
 import CreateEducationModal from "../common/modals/CreateEducationModal";
+import { getLogoFromLanguage } from "@/util/imageUtil";
 
 const ResumeTab = () => {
   const {
@@ -21,6 +22,9 @@ const ResumeTab = () => {
   const [education, setEducation] = useState<ResumeEducation[]>(
     user.resume.education
   );
+
+  const [skill, setSkill] = useState<string>("");
+  const [skills, setSkills] = useState<string[]>(user.skills);
 
   return (
     <div>
@@ -172,6 +176,58 @@ const ResumeTab = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div>
+        <div className="text-zinc-900 font-bold text-2xl mt-6">Tech Skills</div>
+        <div className="mt-2 relative ">
+          <input
+            type="text"
+            id="default-search"
+            className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+            placeholder="Eg. Kotlin"
+            value={skill}
+            onChange={(e) => setSkill(e.target.value)}
+          />
+          <div
+            onClick={() => {
+              if (skill) {
+                setSkills([...skills, skill]);
+                setSkill("");
+              }
+            }}
+            className="flex items-center justify-center bg-primary-400 hover:bg-primary-300 text-white rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+          >
+            Add Skill
+          </div>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <div
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to remove this skill"
+                  ) === true
+                ) {
+                  setSkills(skills.filter((item) => item !== skill));
+                }
+              }}
+              key={skill}
+              className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
+            >
+              <Image
+                quality={100}
+                src={getLogoFromLanguage(skill)}
+                width={20}
+                height={20}
+                alt={skill}
+                className="mr-2"
+              />
+              {skill}
+            </div>
+          ))}
+        </div>
       </div>
 
       {showCreateExperienceModal && (
