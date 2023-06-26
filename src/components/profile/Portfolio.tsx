@@ -5,8 +5,12 @@ import { User } from "models/User";
 import { getLogoFromLanguage } from "@/util/imageUtil";
 
 const Portfolio = () => {
-  const { user, setShowCreateProjectModal, setShowCreatePlaygroundModal } =
-    useAppContext();
+  const {
+    user,
+    setShowCreateProjectModal,
+    setShowCreatePlaygroundModal,
+    setShowCreateCertificateModal,
+  } = useAppContext();
 
   const stats = [
     {
@@ -183,7 +187,12 @@ const Portfolio = () => {
       <div className="portfolio-section">
         <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Certificates</div>
-          <div className="portfolio-label-action">Add new certificate</div>
+          <div
+            className="portfolio-label-action"
+            onClick={() => setShowCreateCertificateModal(true)}
+          >
+            Add new certificate
+          </div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
           {user.certificates.map((certificate) => (
@@ -204,7 +213,10 @@ const Portfolio = () => {
               <div className="text-zinc-700 text-sm font-light">
                 Issued on {certificate.issuedDate}
               </div>
-              <div className="text-zinc-700/80 text-sm font-semibold  mt-2">
+              <div
+                onClick={() => alert("Credentials")}
+                className="text-zinc-700/80 text-sm font-semibold  mt-2"
+              >
                 See Credentials
               </div>
             </div>

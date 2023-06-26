@@ -1,40 +1,31 @@
+import { getLogoFromLanguage } from "@/util/imageUtil";
 import { isValidateUrl } from "@/util/regexUtil";
 import { useAppContext } from "context/AppContext";
-import { PlaygroundSharedUser, User, UserPlayground } from "models/User";
+import { User, UserCertificate } from "models/User";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-const CreatePlaygroundModal = () => {
-  const { setShowCreatePlaygroundModal, reloadUser } = useAppContext();
+const CreateCertificateModal = () => {
+  const { setShowCreateCertificateModal, reloadUser } = useAppContext();
 
-  const [playgroundTitle, setPlaygroundTitle] = useState<string>("");
-  const [playgroundSharedWith, setPlaygroundSharedWith] = useState<string>("");
-  const [playgroundLanguage, setPlaygroundLanguage] = useState<string>("");
+  const [certificateTitle, setCertificateTitle] = useState<string>("");
+  const [certificateLanguage, setCertificateLanguage] = useState<string>("");
+  const [certificateIssuedOn, setCertificateIssuedOn] = useState<string>("");
 
   const save = () => {
-    if (playgroundTitle && playgroundSharedWith && playgroundLanguage) {
+    if (certificateTitle && certificateLanguage && certificateIssuedOn) {
       const oldUserRaw = localStorage.getItem("user");
       if (oldUserRaw) {
-        const sharedUsers: PlaygroundSharedUser[] = [];
-        playgroundSharedWith.split(" ").forEach((item) => {
-          const user: PlaygroundSharedUser = {
-            name: item,
-            pic: "/icons/avatars/dummyuser2.png",
-          };
-          sharedUsers.push(user);
-        });
-
         const newUser: User = JSON.parse(oldUserRaw);
-        const playground: UserPlayground = {
-          title: playgroundTitle,
-          language: playgroundLanguage,
-          time: "1min ago",
-          sharedWith: sharedUsers,
+        const certificate: UserCertificate = {
+          title: certificateTitle,
+          issuedDate: certificateIssuedOn,
+          logo: getLogoFromLanguage(certificateLanguage),
         };
-        newUser.playgrounds.push(playground);
+        newUser.certificates.push(certificate);
         localStorage.setItem("user", JSON.stringify(newUser));
         reloadUser();
-        setShowCreatePlaygroundModal(false);
+        setShowCreateCertificateModal(false);
       } else {
         alert("Local storage error");
       }
@@ -48,10 +39,10 @@ const CreatePlaygroundModal = () => {
       <div className="bg-white rounded-md w-4/5 shadow-md">
         <div className="flex items-center justify-between p-4">
           <div className="text-zinc-800 font-bold text-2xl">
-            Create Playground
+            Create Certificate
           </div>
           <div
-            onClick={() => setShowCreatePlaygroundModal(false)}
+            onClick={() => setShowCreateCertificateModal(false)}
             className="w-8 h-8 flex items-center justify-center text-zinc-800 text-2xl bg-zinc-300 hover:bg-zinc-400/80 cursor-pointer rounded-md"
           >
             x
@@ -60,24 +51,26 @@ const CreatePlaygroundModal = () => {
         <hr className="h-[1px] bg-gray-200" />
         <div className="p-4 overflow-y-auto">
           <div className="mb-6 flex flex-col">
-            <div className="text-zinc-900 font-medium">Playground name</div>
+            <div className="text-zinc-900 font-medium">Certificate name</div>
             <input
               type="text"
               className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
-              placeholder="Name of your playground"
-              value={playgroundTitle}
-              onChange={(e) => setPlaygroundTitle(e.target.value)}
+              placeholder="Name of your certificate"
+              value={certificateTitle}
+              onChange={(e) => setCertificateTitle(e.target.value)}
             />
           </div>
 
           <div className="mb-6 flex flex-col">
-            <div className="text-zinc-900 font-medium">Playground language</div>
+            <div className="text-zinc-900 font-medium">
+              Certificate language
+            </div>
             <input
               type="text"
               className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
-              placeholder="Eg. HTML/CSS"
-              value={playgroundLanguage}
-              onChange={(e) => setPlaygroundLanguage(e.target.value)}
+              placeholder="Eg. React"
+              value={certificateLanguage}
+              onChange={(e) => setCertificateLanguage(e.target.value)}
             />
           </div>
 
@@ -86,15 +79,15 @@ const CreatePlaygroundModal = () => {
             <input
               type="text"
               className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
-              placeholder="Enter names of user to share with seperated by white space"
-              value={playgroundSharedWith}
-              onChange={(e) => setPlaygroundSharedWith(e.target.value)}
+              placeholder="Eg. 10 Dec 2021"
+              value={certificateIssuedOn}
+              onChange={(e) => setCertificateIssuedOn(e.target.value)}
             />
           </div>
 
           <div className="mt-4 flex items-center justify-end">
             <button
-              onClick={() => setShowCreatePlaygroundModal(false)}
+              onClick={() => setShowCreateCertificateModal(false)}
               className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
             >
               Cancel
@@ -112,4 +105,4 @@ const CreatePlaygroundModal = () => {
   );
 };
 
-export default CreatePlaygroundModal;
+export default CreateCertificateModal;

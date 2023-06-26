@@ -20,6 +20,8 @@ type AppContextType = {
   setShowCreateProjectModal: React.Dispatch<React.SetStateAction<boolean>>;
   showCreatePlaygroundModal: boolean;
   setShowCreatePlaygroundModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showCreateCertificateModal: boolean;
+  setShowCreateCertificateModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -30,6 +32,9 @@ export default function AppStore(props: PropsWithChildren) {
   const [user, setUser] = useState<User>(DummyUser);
   const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
   const [showCreatePlaygroundModal, setShowCreatePlaygroundModal] =
+    useState(false);
+
+  const [showCreateCertificateModal, setShowCreateCertificateModal] =
     useState(false);
 
   useEffect(() => {
@@ -64,6 +69,8 @@ export default function AppStore(props: PropsWithChildren) {
         setShowCreateProjectModal,
         showCreatePlaygroundModal,
         setShowCreatePlaygroundModal,
+        showCreateCertificateModal,
+        setShowCreateCertificateModal,
       }}
     >
       {props.children}
