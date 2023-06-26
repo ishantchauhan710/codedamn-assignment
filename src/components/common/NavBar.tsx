@@ -1,5 +1,8 @@
 import Image from "next/image";
 import React from "react";
+import ProfileImage from "../util/ProfilePicture";
+import { useAppContext } from "context/AppContext";
+import { User } from "models/User";
 
 const Logo = () => {
   return (
@@ -49,7 +52,11 @@ const SearchField = () => {
   );
 };
 
-const NavIcons = () => {
+interface NavIconProps {
+  user: User;
+}
+
+const NavIcons = ({ user }: NavIconProps) => {
   return (
     <div
       className="flex items-center justify-between"
@@ -81,12 +88,14 @@ const NavIcons = () => {
         className="relative mx-2 cursor-pointer transition"
         onClick={() => alert("Profile")}
       >
-        <Image
-          src="/icons/avatars/profile_small.png"
+        <ProfileImage
+          src={user.profilePic}
           width={42}
           height={42}
           alt="profile"
           className="mt-[-12px]"
+          badgePosition="top"
+          badgeValue={user.stats.longestStreak}
         />
       </div>
     </div>
@@ -94,11 +103,12 @@ const NavIcons = () => {
 };
 
 const NavBar = () => {
+  const { user } = useAppContext();
   return (
     <div className="flex items-center justify-end px-5 py-4 fixed top-0 w-screen z-[20] bg-white shadow-md">
       <Logo />
       <SearchField />
-      <NavIcons />
+      <NavIcons user={user} />
     </div>
   );
 };

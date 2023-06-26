@@ -26,7 +26,7 @@ const ProfileImage = ({
     <div className="relative">
       <div
         style={{ width: width, height: height }}
-        className={`relative rounded-full overflow-hidden bg-red-500 border-[4px] border-white ${className}`}
+        className={`relative rounded-full overflow-hidden bg-gray-300 border-[4px] border-white ${className}`}
       >
         <Image
           src={src}
@@ -40,16 +40,24 @@ const ProfileImage = ({
         <div
           className={`${
             badgePosition === "bottom"
-              ? "bottom-0 right-0 mb-[-20px] mr-[-18px]"
+              ? "bottom-0 right-0"
               : "top-0 right-0 mt-[-20px] mr-[-18px]"
-          } absolute `}
+          } ${
+            width > 60 && badgePosition === "bottom"
+              ? "mb-[-20px] mr-[-18px]"
+              : "mb-[-14px] mr-[-16px]"
+          } ${
+            width > 60 && badgePosition === "top"
+              ? "mt-[-20px] mr-[-18px]"
+              : "mt-[-14px] mr-[-16px]"
+          }  absolute `}
         >
           <div className="relative flex items-center justify-center">
             <Image
               src="/icons/app/profile_badge.png"
               alt="profile badge"
-              width={80}
-              height={80}
+              width={width > 60 ? 80 : 45}
+              height={width > 60 ? 80 : 45}
             />
             <span className="absolute text-white text-sm font-semibold mb-[4.5px] ml-[1px]">
               {badgeValue}

@@ -7,6 +7,7 @@ export const DummyUser = {
   gender: "Male",
   profilePic: "/images/profilepic1.jpg",
   coverPic: "",
+  proAccountActivated: true,
   skills: [
     "HTML5",
     "CSS3",
@@ -200,5 +201,6 @@ export const DummyUser = {
       "Hiking",
     ],
     languages: ["English", "Mandarin", "Cantonese Chinese"],
+    isLookingForJob: true
   },
 };

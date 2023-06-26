@@ -39,25 +39,28 @@ const ProfileSection = () => {
             width={140}
             height={140}
             alt="profile"
-            badgeValue={7}
-            badgePosition="top"
+            badgeValue={user.stats.longestStreak}
             className="absolute mt-[-50px] ml-4 cursor-pointer"
           />
         </div>
         <div className="flex-[0.82] m-4">
           <div className="flex flex-col sm:flex-row sm:items-center">
-            <span className="font-bold text-3xl mr-2">Anna Cheng</span>
+            <span className="font-bold text-3xl mr-2">{user.fullname}</span>
             <div>
-              <span className="bg-lime-300 px-2 py-[3px] text-sm mr-2 rounded-sm">
-                Pro
-              </span>
-              <span className="bg- bg-sky-100 text-sky-800 px-2 py-[3px] text-sm rounded-sm font-semibold">
-                Looking for job
-              </span>
+              {user.proAccountActivated && (
+                <span className="bg-lime-300 px-2 py-[3px] text-sm mr-2 rounded-sm">
+                  Pro
+                </span>
+              )}
+              {user.resume.isLookingForJob && (
+                <span className="bg- bg-sky-100 text-sky-800 px-2 py-[3px] text-sm rounded-sm font-semibold">
+                  Looking for job
+                </span>
+              )}
             </div>
           </div>
           <div className="text-md text-zinc-600 mt-1">
-            Full stack dev at codedamn | Harvard&lsquo;22&ldquo;
+            {user.about}
           </div>
           <div className="text-md text-zinc-600 mt-1 flex items-center font-light">
             <Image
@@ -67,7 +70,7 @@ const ProfileSection = () => {
               alt="location"
               className="mr-1"
             />
-            Mumbai, India
+            {user.location}
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             {user.skills.map((skill) => (

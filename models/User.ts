@@ -47,6 +47,7 @@ export type Resume = {
   education: ResumeEducation[];
   interests: string[];
   languages: string[];
+  isLookingForJob: boolean
 };
 
 export type User = {
@@ -58,6 +59,7 @@ export type User = {
   gender: string;
   profilePic: string;
   coverPic: string;
+  proAccountActivated: boolean,
   skills: string[];
   socials: {
     google: string;
