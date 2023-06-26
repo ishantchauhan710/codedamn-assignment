@@ -6,9 +6,10 @@ import { DummyUser } from "@/data";
 import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
 import Resume from "@/components/profile/Resume";
+import CreateProjectModal from "@/components/common/modals/CreateProjectModal";
 
 export default function Home() {
-  const { activeTab, user, setUser } = useAppContext();
+  const { activeTab, showCreateProjectModal } = useAppContext();
 
   return (
     <div className="mx-2 sm:mx-4 md:mx-24 my-24">
@@ -16,6 +17,7 @@ export default function Home() {
       <CoursesTab />
       {activeTab === "Portfolio" && <Portfolio />}
       {activeTab === "Resume" && <Resume />}
+      {showCreateProjectModal && <CreateProjectModal />}
     </div>
   );
 }

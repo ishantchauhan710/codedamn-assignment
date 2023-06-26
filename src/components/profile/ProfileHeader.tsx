@@ -59,13 +59,15 @@ const ProfileHeader = () => {
     <div className="shadow-sm">
       {/* COVER IMAGE */}
       <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-44 rounded-t-xl">
-        <Image
-          src={user.coverPic}
-          alt="cover"
-          style={{ objectFit: "cover" }}
-          fill
-          className="absolute w-full h-full"
-        />
+        {user.coverPic && (
+          <Image
+            src={user.coverPic}
+            alt="cover"
+            style={{ objectFit: "cover" }}
+            fill
+            className="absolute w-full h-full"
+          />
+        )}
 
         <input
           type="file"

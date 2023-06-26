@@ -5,7 +5,7 @@ import { User } from "models/User";
 import { getLogoFromLanguage } from "@/util/imageUtil";
 
 const Portfolio = () => {
-  const { user } = useAppContext();
+  const { user, setShowCreateProjectModal } = useAppContext();
 
   const stats = [
     {
@@ -57,7 +57,12 @@ const Portfolio = () => {
       <div className="portfolio-section">
         <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Projects</div>
-          <div className="portfolio-label-action">Create new project</div>
+          <div
+            className="portfolio-label-action"
+            onClick={() => setShowCreateProjectModal(true)}
+          >
+            Create new project
+          </div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2 gap-4">
           {user.projects.map((project) => (

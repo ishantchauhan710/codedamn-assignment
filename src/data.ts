@@ -5,8 +5,8 @@ export const DummyUser = {
   profession: "Student",
   dob: "21/12/1952",
   gender: "Male",
-  profilePic: "/images/profilepic1.jpg",
-  coverPic: "/images/writerai_project_cover.jpg",
+  profilePic: "",
+  coverPic: "",
   proAccountActivated: true,
   skills: [
     "HTML5",
