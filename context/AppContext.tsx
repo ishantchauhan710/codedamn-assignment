@@ -18,6 +18,8 @@ type AppContextType = {
   reloadUser: () => void;
   showCreateProjectModal: boolean;
   setShowCreateProjectModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showCreatePlaygroundModal: boolean;
+  setShowCreatePlaygroundModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -27,6 +29,8 @@ export default function AppStore(props: PropsWithChildren) {
   const [activeProfileTab, setActiveProfileTab] = useState<string>("Profile");
   const [user, setUser] = useState<User>(DummyUser);
   const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
+  const [showCreatePlaygroundModal, setShowCreatePlaygroundModal] =
+    useState(false);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -58,6 +62,8 @@ export default function AppStore(props: PropsWithChildren) {
         reloadUser,
         showCreateProjectModal,
         setShowCreateProjectModal,
+        showCreatePlaygroundModal,
+        setShowCreatePlaygroundModal,
       }}
     >
       {props.children}

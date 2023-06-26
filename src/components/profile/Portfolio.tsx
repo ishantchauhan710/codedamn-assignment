@@ -5,7 +5,8 @@ import { User } from "models/User";
 import { getLogoFromLanguage } from "@/util/imageUtil";
 
 const Portfolio = () => {
-  const { user, setShowCreateProjectModal } = useAppContext();
+  const { user, setShowCreateProjectModal, setShowCreatePlaygroundModal } =
+    useAppContext();
 
   const stats = [
     {
@@ -113,7 +114,12 @@ const Portfolio = () => {
       <div className="portfolio-section">
         <div className="block sm:flex items-center justify-between">
           <div className="portfolio-label">Playgrounds</div>
-          <div className="portfolio-label-action">Create new playground</div>
+          <div
+            className="portfolio-label-action"
+            onClick={() => setShowCreatePlaygroundModal(true)}
+          >
+            Create new playground
+          </div>
         </div>
         <div className="grid  grid-cols-1 sm:grid-cols-2  gap-4">
           {user.playgrounds.map((playground) => (
@@ -154,7 +160,10 @@ const Portfolio = () => {
                     {playground.sharedWith.slice(0, 2).map((user) => (
                       <span className="font-bold" key={user.name + "name"}>
                         {user.name}
-                        {user.name !== playground.sharedWith[1].name && ", "}
+                        {user.name !==
+                          playground.sharedWith[
+                            playground.sharedWith.length - 1
+                          ].name && ", "}
                       </span>
                     ))}
                     {playground.sharedWith.length > 1 && (

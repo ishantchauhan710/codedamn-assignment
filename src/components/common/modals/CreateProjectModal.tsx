@@ -11,7 +11,7 @@ const CreateProjectModal = () => {
   const [projectAbout, setProjectAbout] = useState<string>("");
   const [projectImgUrl, setProjectImgUrl] = useState<string>("");
   const [projectSkills, setProjectSkills] = useState<string>("");
-  const router = useRouter();
+
   const save = () => {
     if (projectTitle && projectAbout && projectImgUrl && projectSkills) {
       if (!isValidateUrl(projectImgUrl)) {

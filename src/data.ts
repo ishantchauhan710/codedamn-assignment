@@ -43,21 +43,25 @@ export const DummyUser = {
   projects: [
     {
       title: "Personal Portfolio Website",
+      about: null,
       image: "/images/project_img.png",
       skills: ["HTML/CSS", "React"],
     },
     {
       title: "SpaceFeed",
+      about: null,
       image: "/images/spacefeed_project_cover.jpg",
       skills: ["HTML/CSS", "React"],
     },
     {
       title: "WriterAI",
+      about: null,
       image: "/images/writerai_project_cover.jpg",
       skills: ["HTML/CSS", "React"],
     },
     {
       title: "DeskViewer",
+      about: null,
       image: "/images/deskviewer_project_cover.jpg",
       skills: ["HTML/CSS", "React"],
     },

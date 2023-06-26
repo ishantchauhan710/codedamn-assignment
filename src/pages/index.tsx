@@ -7,9 +7,11 @@ import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
 import Resume from "@/components/profile/Resume";
 import CreateProjectModal from "@/components/common/modals/CreateProjectModal";
+import CreatePlaygroundModal from "@/components/common/modals/CreatePlaygroundModal";
 
 export default function Home() {
-  const { activeTab, showCreateProjectModal } = useAppContext();
+  const { activeTab, showCreateProjectModal, showCreatePlaygroundModal } =
+    useAppContext();
 
   return (
     <div className="mx-2 sm:mx-4 md:mx-24 my-24">
@@ -18,6 +20,7 @@ export default function Home() {
       {activeTab === "Portfolio" && <Portfolio />}
       {activeTab === "Resume" && <Resume />}
       {showCreateProjectModal && <CreateProjectModal />}
+      {showCreatePlaygroundModal && <CreatePlaygroundModal />}
     </div>
   );
 }
