@@ -1,3 +1,4 @@
+import PortfolioTab from "@/components/edit/PortfolioTab";
 import ProfileTab from "@/components/edit/ProfileTab";
 import SocialsTab from "@/components/edit/SocialsTab";
 import { useAppContext } from "context/AppContext";
@@ -38,6 +39,7 @@ const Profile = () => {
         <div className="flex-[1] md:flex-[0.80] mx-4 md:px-4">
           {activeProfileTab === "Profile" && <ProfileTab />}
           {activeProfileTab === "Socials" && <SocialsTab />}
+          {activeProfileTab === "Portfolio" && <PortfolioTab />}
         </div>
       </div>
       <div className="bg-zinc-100 pt-2 rounded-md w-full flex md:hidden items-center justify-around fixed bottom-0">

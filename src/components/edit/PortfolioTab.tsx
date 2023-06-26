@@ -1,27 +1,43 @@
 import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
-const Playgrounds = () => {
-  const { user, setShowCreatePlaygroundModal } = useAppContext();
+const PortfolioTab = () => {
+  const { user } = useAppContext();
+  const [selectedPlaygrounds, setSelectedPlaygrounds] = useState<string[]>([]);
+
+  const handleSelection = (key: string) => {
+    if (selectedPlaygrounds.includes(key)) {
+      const filteredPlaygrounds = selectedPlaygrounds.filter(
+        (item) => item !== key
+      );
+      setSelectedPlaygrounds(filteredPlaygrounds);
+    } else {
+      setSelectedPlaygrounds([...selectedPlaygrounds, key]);
+    }
+  };
+
   return (
-    <div className="portfolio-section">
-      <div className="block sm:flex items-center justify-between">
-        <div className="portfolio-label">Playgrounds</div>
-        <div
-          className="portfolio-label-action"
-          onClick={() => setShowCreatePlaygroundModal(true)}
-        >
-          Create new playground
-        </div>
+    <React.Fragment>
+      <div className="flex items-end justify-between">
+        <div className="text-zinc-900 font-bold text-2xl">Playgrounds</div>
+        <div className="text-zinc-700 text-sm">See all</div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {user.playgrounds.map((playground) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+        {user.playgrounds.map((playground, index) => (
           <div
             key={playground.title}
-            className="bg-zinc-100 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row"
+            onClick={() => handleSelection(playground.title + index)}
+            className={`${
+              selectedPlaygrounds.includes(playground.title + index)
+                ? "border-primary bg-primary-100/40"
+                : "bg-zinc-100 border-zinc-100"
+            } text-zinc-700 relative cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row border-2`}
           >
+            {selectedPlaygrounds.includes(playground.title + index) && (
+              <div className="absolute bg-transparent border-[5px] border-primary w-4 h-4 rounded-full right-0 mr-3 mt-1" />
+            )}
             <Image
               src={getLogoFromLanguage(playground.language)}
               width={40}
@@ -71,8 +87,8 @@ const Playgrounds = () => {
           </div>
         ))}
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
-export default Playgrounds;
+export default PortfolioTab;
