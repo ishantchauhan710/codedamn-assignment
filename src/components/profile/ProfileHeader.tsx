@@ -1,14 +1,37 @@
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 import ProfileImage from "../util/ProfilePicture";
 import { useRouter } from "next/router";
+import { getBase64 } from "@/util/imageUtil";
+import { User } from "models/User";
 
-const ProfileSection = () => {
-  const { user } = useAppContext();
+const ProfileHeader = () => {
+  const { user, reloadUser } = useAppContext();
   const router = useRouter();
+  const [tempCoverPic, setTempCoverPic] = useState<string>(user.coverPic);
 
+  const coverPicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
+
+  // CHANGE COVER IMAGE
+  const updateCoverImage = async (img: File) => {
+    const base64data = (await getBase64(img)) as string;
+
+    const oldUserRaw = localStorage.getItem("user");
+    if (oldUserRaw) {
+      const newUser: User = JSON.parse(oldUserRaw);
+      newUser.coverPic = base64data;
+      localStorage.setItem("user", JSON.stringify(newUser));
+      reloadUser();
+    } else {
+      alert("Local storage error");
+    }
+
+    setTempCoverPic(base64data);
+  };
+
+  // SOCIAL BUTTONS
   const socials = [
     {
       link: user.socials.google,
@@ -34,10 +57,33 @@ const ProfileSection = () => {
 
   return (
     <div className="shadow-sm">
-      <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-40 rounded-t-xl">
-        <Link
-          href="/profile"
-          className="flex items-center justify-center text-white bg-violet-600/40 hover:bg-violet-600/60 p-2 border border-gray-300 rounded-lg absolute right-0 m-4"
+      {/* COVER IMAGE */}
+      <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-44 rounded-t-xl">
+        <Image
+          src={user.coverPic}
+          alt="cover"
+          style={{ objectFit: "cover" }}
+          fill
+          className="absolute w-full h-full"
+        />
+
+        <input
+          type="file"
+          accept="image/*;capture=camera"
+          hidden
+          ref={coverPicInputRef}
+          onChange={(e) => {
+            if (e.target.files) {
+              updateCoverImage(e.target.files[0]);
+            }
+          }}
+        />
+
+        <button
+          onClick={() => {
+            coverPicInputRef.current.click();
+          }}
+          className="flex items-center justify-center text-white bg-black/70 hover:bg-black/80 p-2 border border-gray-300 rounded-lg absolute right-0 m-4"
         >
           <Image
             src="/icons/app/edit_profile_icon.png"
@@ -47,9 +93,11 @@ const ProfileSection = () => {
             className="mr-2"
           />
           Edit cover
-        </Link>
+        </button>
       </div>
+
       <div className="flex flex-col md:flex-row border border-neutral-200 shadow-sm rounded-b-xl">
+        {/* PROFILE IMAGE */}
         <div
           className="h-[70px] md:h-[0px] md:flex-[0.18] relative"
           onClick={() => router.push("/profile")}
@@ -63,6 +111,8 @@ const ProfileSection = () => {
             className="absolute mt-[-50px] ml-4 cursor-pointer"
           />
         </div>
+
+        {/* PROFILE HEADER DATA */}
         <div className="flex-[0.82] m-4">
           <div className="flex flex-col sm:flex-row sm:items-center">
             <span className="font-bold text-3xl mr-2">{user.fullname}</span>
@@ -145,4 +195,4 @@ const ProfileSection = () => {
   );
 };
 
-export default ProfileSection;
+export default ProfileHeader;

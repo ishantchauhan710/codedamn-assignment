@@ -1,8 +1,8 @@
-import { getLogoFromLanguage } from "@/util/getLogoFromLanguage";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React from "react";
 import { User } from "models/User";
+import { getLogoFromLanguage } from "@/util/imageUtil";
 
 const Portfolio = () => {
   const { user } = useAppContext();

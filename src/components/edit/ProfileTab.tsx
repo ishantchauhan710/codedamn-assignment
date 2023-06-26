@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import ProfileImage from "../util/ProfilePicture";
+import { getBase64 } from "@/util/imageUtil";
 
 const ProfileTab = () => {
-  const { user } = useAppContext();
+  const { user, reloadUser } = useAppContext();
   const router = useRouter();
   const [displayName, setDisplayName] = useState(user.fullname);
   const [about, setAbout] = useState(user.about);
@@ -15,18 +16,10 @@ const ProfileTab = () => {
   const [gender, setGender] = useState(user.gender);
   const [location, setLocation] = useState(user.location);
   const [tempProfilePic, setTempProfilePic] = useState(user.profilePic);
+  const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>();
+  const profilePicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
 
-  const getBase64 = (file: File) => {
-    return new Promise((resolve, reject) => {
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        resolve(reader.result);
-      };
-      reader.onerror = reject;
-    });
-  };
-
+  // SAVE PROFILE DATA
   const saveChanges = async () => {
     const oldUserRaw = localStorage.getItem("user");
     if (oldUserRaw) {
@@ -49,31 +42,35 @@ const ProfileTab = () => {
       }
 
       localStorage.setItem("user", JSON.stringify(newUser));
+      reloadUser()
       router.push("/");
     } else {
       alert("Local storage error");
     }
   };
 
+  // DISCARD PROFILE DATA
   const cancel = () => {
     if (window.confirm("Are you sure you want to discard changes?") === true) {
       router.push("/");
     }
   };
 
+  // DELETE PROFILE PICTURE
+  // If on save, temp profile pic is null, we set actual user obj profile pic to null
   const deleteProfilePic = () => {
     setTempProfilePic("");
   };
 
-  const profilePicInputRef = useRef() as MutableRefObject<HTMLInputElement>;
-  const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>();
-
+  // OPEN FILE PICKER
   const uploadProfilePic = () => {
     if (profilePicInputRef.current) {
       profilePicInputRef.current.click();
     }
   };
 
+  // UPDATE TEMP PROFILE
+  // Temp profile pic will only show the newly selected profile pic on edit profile page
   const updateTempProfilePic = async () => {
     if (selectedProfilePic) {
       const base64data = (await getBase64(selectedProfilePic)) as string;
@@ -81,6 +78,7 @@ const ProfileTab = () => {
     }
   };
 
+  // Whenever user selects a new pic, show it in image element of edit profile page
   useEffect(() => {
     updateTempProfilePic();
   }, [selectedProfilePic]);

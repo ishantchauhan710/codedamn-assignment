@@ -1,4 +1,4 @@
-import { getLogoFromLanguage } from "@/util/getLogoFromLanguage";
+import { getLogoFromLanguage } from "@/util/imageUtil";
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -22,7 +22,7 @@ const Resume = () => {
             onClick={() => setShowMore(!showMore)}
             className="bg-neutral-200 hover:bg-neutral-300 text-zinc-800 px-3 py-2 rounded-sm mt-4 text-sm"
           >
-            {showMore===true ? "Show Less" : "Read More"}
+            {showMore === true ? "Show Less" : "Read More"}
           </button>
         </div>
       </div>
