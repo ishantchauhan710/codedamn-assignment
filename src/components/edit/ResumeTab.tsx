@@ -1,11 +1,16 @@
 import { useAppContext } from "context/AppContext";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import CreateExperienceModal from "../common/modals/CreateExperienceModal";
+import { ResumeExperience } from "models/User";
 
 const ResumeTab = () => {
   const { user, showCreateExperienceModal, setShowCreateExperienceModal } =
     useAppContext();
+
+  const [experience, setExperience] = useState<ResumeExperience[]>(
+    user.resume.experience
+  );
 
   return (
     <div>
@@ -45,14 +50,32 @@ const ResumeTab = () => {
       </div>
 
       <div>
-        {user.resume.experience.map((exp) => (
+        {experience.map((exp) => (
           <div
             key={exp.description}
-            className="resume-section-body block sm:flex items-start my-4"
+            className="relative resume-section-body block sm:flex items-start my-4"
           >
+            <div
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to delete this experience"
+                  ) === true
+                ) {
+                  setExperience(
+                    experience.filter(
+                      (item) => item.description !== exp.description
+                    )
+                  );
+                }
+              }}
+              className="absolute mr-2 mt-[-4px] right-0 text-zinc-800 hover:text-zinc-900 text-2xl cursor-pointer"
+            >
+              x
+            </div>
             <div className="mr-3 mb-1 sm:mb-0">
-                  <Image
-        quality={100}
+              <Image
+                quality={100}
                 src="/icons/social_media_platforms/Facebook.png"
                 width={40}
                 height={40}
@@ -92,7 +115,12 @@ const ResumeTab = () => {
           </div>
         ))}
       </div>
-      {showCreateExperienceModal && <CreateExperienceModal />}
+      {showCreateExperienceModal && (
+        <CreateExperienceModal
+          experience={experience}
+          setExperience={setExperience}
+        />
+      )}
     </div>
   );
 };
