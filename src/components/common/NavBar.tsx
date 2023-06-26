@@ -3,6 +3,8 @@ import React from "react";
 import ProfileImage from "../util/ProfilePicture";
 import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
+import { redirect } from "next/navigation";
+import { NextRouter, Router, useRouter } from "next/router";
 
 const Logo = () => {
   return (
@@ -54,15 +56,16 @@ const SearchField = () => {
 
 interface NavIconProps {
   user: User;
+  router: NextRouter;
 }
 
-const NavIcons = ({ user }: NavIconProps) => {
+const NavIcons = ({ user, router }: NavIconProps) => {
   return (
-    <div
-      className="flex items-center justify-between"
-      onClick={() => alert("Spark")}
-    >
-      <div className="flex items-center justify-between mx-2 cursor-pointer">
+    <div className="flex items-center justify-between">
+      <div
+        className="flex items-center justify-between mx-2 cursor-pointer"
+        onClick={() => alert("Spark")}
+      >
         <Image src="/icons/app/spark.png" width={20} height={20} alt="spark" />
         <span className="font-semibold text-zinc-600 text-md ml-1 hover:text-zinc-900">
           2
@@ -86,14 +89,14 @@ const NavIcons = ({ user }: NavIconProps) => {
 
       <div
         className="relative mx-2 cursor-pointer transition"
-        onClick={() => alert("Profile")}
+        onClick={() => router.push("/profile")}
       >
         <ProfileImage
           src={user.profilePic}
-          width={42}
-          height={42}
+          width={36}
+          height={36}
           alt="profile"
-          className="mt-[-12px]"
+          className="mt-[-4px]"
           badgePosition="top"
           badgeValue={user.stats.longestStreak}
         />
@@ -104,11 +107,13 @@ const NavIcons = ({ user }: NavIconProps) => {
 
 const NavBar = () => {
   const { user } = useAppContext();
+  const router = useRouter();
+
   return (
     <div className="flex items-center justify-end px-5 py-4 fixed top-0 w-screen z-[20] bg-white shadow-md">
       <Logo />
       <SearchField />
-      <NavIcons user={user} />
+      <NavIcons user={user} router={router} />
     </div>
   );
 };

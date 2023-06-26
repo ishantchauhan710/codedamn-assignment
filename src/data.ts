@@ -20,14 +20,14 @@ export const DummyUser = {
     "Java",
   ],
   socials: {
-    google: "",
-    instagram: "",
-    facebook: "",
-    linkedin: "",
-    youtube: "",
-    github: "",
-    behance: "",
-    dribbble: "",
+    google: "https://www.google.com",
+    instagram: "https://www.instagram.com",
+    facebook: "https://www.facebook.com",
+    linkedin: "https://www.linkedin.com",
+    youtube: "https://www.youtube.com",
+    github: "https://www.github.com",
+    behance: "https://www.behance.com",
+    dribbble: "https://www.dribbble.com",
   },
   configuration: {
     showFollowers: true,
@@ -201,6 +201,6 @@ export const DummyUser = {
       "Hiking",
     ],
     languages: ["English", "Mandarin", "Cantonese Chinese"],
-    isLookingForJob: true
+    isLookingForJob: true,
   },
 };

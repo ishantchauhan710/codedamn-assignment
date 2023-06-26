@@ -3,16 +3,33 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ProfileImage from "../util/ProfilePicture";
+import { useRouter } from "next/router";
 
 const ProfileSection = () => {
   const { user } = useAppContext();
+  const router = useRouter();
 
   const socials = [
-    "/icons/social_media_platforms/Google.png",
-    "/icons/social_media_platforms/Instagram.png",
-    "/icons/social_media_platforms/Facebook.png",
-    "/icons/social_media_platforms/LinkedIn.png",
-    "/icons/social_media_platforms/YouTube.png",
+    {
+      link: user.socials.google,
+      logo: "/icons/social_media_platforms/Google.png",
+    },
+    {
+      link: user.socials.instagram,
+      logo: "/icons/social_media_platforms/Instagram.png",
+    },
+    {
+      link: user.socials.facebook,
+      logo: "/icons/social_media_platforms/Facebook.png",
+    },
+    {
+      link: user.socials.linkedin,
+      logo: "/icons/social_media_platforms/LinkedIn.png",
+    },
+    {
+      link: user.socials.youtube,
+      logo: "/icons/social_media_platforms/YouTube.png",
+    },
   ];
 
   return (
@@ -33,7 +50,10 @@ const ProfileSection = () => {
         </Link>
       </div>
       <div className="flex flex-col md:flex-row border border-neutral-200 shadow-sm rounded-b-xl">
-        <div className="h-[70px] md:h-[0px] md:flex-[0.18] relative">
+        <div
+          className="h-[70px] md:h-[0px] md:flex-[0.18] relative"
+          onClick={() => router.push("/profile")}
+        >
           <ProfileImage
             src={user.profilePic}
             width={140}
@@ -59,9 +79,7 @@ const ProfileSection = () => {
               )}
             </div>
           </div>
-          <div className="text-md text-zinc-600 mt-1">
-            {user.about}
-          </div>
+          <div className="text-md text-zinc-600 mt-1">{user.about}</div>
           <div className="text-md text-zinc-600 mt-1 flex items-center font-light">
             <Image
               src="/icons/app/location.png"
@@ -88,11 +106,16 @@ const ProfileSection = () => {
             <div className="flex flex-wrap gap-2 flex-[0.5]">
               {socials.map((social) => (
                 <div
-                  onClick={() => alert("Socials")}
-                  key={social}
+                  onClick={() => window.open(social.link)}
+                  key={social.link}
                   className="border border-neutral-200  hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-md"
                 >
-                  <Image src={social} width={20} height={20} alt={social} />
+                  <Image
+                    src={social.logo}
+                    width={20}
+                    height={20}
+                    alt={social.logo}
+                  />
                 </div>
               ))}
             </div>

@@ -1,7 +1,36 @@
+import { useAppContext } from "context/AppContext";
+import { User } from "models/User";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 const ProfileTab = () => {
+  const { user } = useAppContext();
+  const router = useRouter();
+  const [displayName, setDisplayName] = useState(user.fullname);
+  const [about, setAbout] = useState(user.about);
+  const [profession, setProfession] = useState(user.profession);
+  const [dob, setDob] = useState(user.dob);
+  const [gender, setGender] = useState(user.gender);
+  const [location, setLocation] = useState(user.location);
+
+  const saveChanges = () => {
+    const oldUserRaw = localStorage.getItem("user");
+    if (oldUserRaw) {
+      const newUser: User = JSON.parse(oldUserRaw);
+      newUser.fullname = displayName;
+      newUser.about = about;
+      newUser.profession = profession;
+      newUser.dob = dob;
+      newUser.gender = gender;
+      newUser.location = location;
+      localStorage.setItem("user", JSON.stringify(newUser));
+      router.push("/");
+    } else {
+      alert("Local storage error");
+    }
+  };
+
   const sectionControls = [
     {
       title: "Followers and following",
@@ -49,6 +78,8 @@ const ProfileTab = () => {
             type="text"
             className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
             placeholder="What is your name?"
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
           />
           <div className="text-sm text-zinc-600 mt-1 font-light">
             Name entered above will be used for all issued certificates
@@ -59,8 +90,10 @@ const ProfileTab = () => {
           <div className="text-zinc-900 font-medium">About</div>
           <textarea
             className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2 resize-none"
-            rows={2}
+            rows={4}
             placeholder="Tell us something about yourself"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
           />
         </div>
 
@@ -70,6 +103,8 @@ const ProfileTab = () => {
             type="text"
             className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
             placeholder="What is your profession?"
+            value={profession}
+            onChange={(e) => setProfession(e.target.value)}
           />
         </div>
 
@@ -79,6 +114,8 @@ const ProfileTab = () => {
             type="text"
             className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
             placeholder="What is your date of birth?"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
           />
         </div>
 
@@ -88,6 +125,19 @@ const ProfileTab = () => {
             type="text"
             className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
             placeholder="What is your gender?"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          />
+        </div>
+
+        <div className="mt-6 flex flex-col">
+          <div className="text-zinc-900 font-medium">Location</div>
+          <input
+            type="text"
+            className="border border-zinc-200 focus:outline-none rounded-md mt-2 px-2 py-2"
+            placeholder="What is your gender?"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
           />
         </div>
       </div>
@@ -135,7 +185,7 @@ const ProfileTab = () => {
           Cancel
         </button>
         <button
-          onClick={() => alert("Contact")}
+          onClick={() => saveChanges()}
           className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-md ml-4"
         >
           Save changes

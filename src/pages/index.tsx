@@ -10,11 +10,22 @@ import Resume from "@/components/profile/resume/Resume";
 import { useEffect } from "react";
 import { DummyUser } from "@/data";
 import { useAppContext } from "context/AppContext";
+import { User } from "models/User";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { activeTab, user, setUser } = useAppContext();
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      const savedUserJson: User = JSON.parse(savedUser);
+      setUser(savedUserJson);
+    } else {
+      localStorage.setItem("user", JSON.stringify(DummyUser));
+    }
+  }, []);
 
   return (
     <div className="mx-2 sm:mx-4 md:mx-24 my-24">
