@@ -1,5 +1,6 @@
 export type UserProject = {
   title: string;
+  about: string | null;
   image: string;
   skills: string[];
 };
@@ -41,13 +42,13 @@ export type ResumeEducation = {
 };
 
 export type Resume = {
-  shortIntro: string,
-  longIntro: string,
+  shortIntro: string;
+  longIntro: string;
   experience: ResumeExperience[];
   education: ResumeEducation[];
   interests: string[];
   languages: string[];
-  isLookingForJob: boolean
+  isLookingForJob: boolean;
 };
 
 export type User = {
@@ -59,7 +60,7 @@ export type User = {
   gender: string;
   profilePic: string | null;
   coverPic: string;
-  proAccountActivated: boolean,
+  proAccountActivated: boolean;
   skills: string[];
   socials: {
     google: string;
