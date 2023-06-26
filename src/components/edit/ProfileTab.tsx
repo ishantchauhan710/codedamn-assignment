@@ -179,7 +179,14 @@ const ProfileTab = () => {
       </div>
       <div className="mt-4 flex items-center justify-end">
         <button
-          onClick={() => alert("Contact")}
+          onClick={() => {
+            if (
+              window.confirm("Are you sure you want to discard changes?") ===
+              true
+            ) {
+              router.push("/");
+            }
+          }}
           className="bg-zinc-200 hover:bg-zinc-300 text-zinc-900 px-3 py-1.5 rounded-md ml-2"
         >
           Cancel
