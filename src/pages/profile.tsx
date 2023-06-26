@@ -25,7 +25,8 @@ const Profile = () => {
                     : "border-l-[6px] border-l-transparent border-y-4 border-y-transparent opacity-[0.5] hover:opacity-[0.75]"
                 }`}
               >
-                <Image
+                    <Image
+        quality={100}
                   src="/icons/app/profile_tab_item.png"
                   width={20}
                   height={20}
@@ -55,7 +56,8 @@ const Profile = () => {
                 : "border-b-[3px] border-b-transparent opacity-[0.5] hover:opacity-[0.75]"
             }`}
           >
-            <Image
+                <Image
+        quality={100}
               src="/icons/app/profile_tab_item.png"
               width={20}
               height={20}

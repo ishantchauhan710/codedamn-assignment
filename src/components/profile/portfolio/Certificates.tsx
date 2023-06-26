@@ -21,7 +21,8 @@ const Certificates = () => {
             key={certificate.title}
             className="bg-zinc-100  text-zinc-700 cursor-pointer p-4 text-sm rounded-md mr-2 flex flex-col"
           >
-            <Image
+                <Image
+        quality={100}
               src={certificate.logo}
               width={40}
               height={40}

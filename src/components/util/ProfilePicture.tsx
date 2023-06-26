@@ -28,7 +28,8 @@ const ProfileImage = ({
         style={{ width: width, height: height }}
         className={`relative rounded-full overflow-hidden bg-gray-300 border-[4px] border-white ${className}`}
       >
-        <Image
+            <Image
+        quality={100}
           src={src ? src : "/icons/avatars/no_avatar.jpg"}
           alt={alt}
           style={{ objectFit: "cover" }}
@@ -53,7 +54,8 @@ const ProfileImage = ({
           } `}
         >
           <div className="relative flex items-center justify-center">
-            <Image
+                <Image
+        quality={100}
               src="/icons/app/profile_badge.png"
               alt="profile badge"
               width={width > 60 ? 80 : 45}

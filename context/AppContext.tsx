@@ -40,7 +40,7 @@ export default function AppStore(props: PropsWithChildren) {
     useState(false);
 
   const [showCreateExperienceModal, setShowCreateExperienceModal] =
-    useState(true);
+    useState(false);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -51,6 +51,25 @@ export default function AppStore(props: PropsWithChildren) {
       localStorage.setItem("user", JSON.stringify(DummyUser));
     }
   }, []);
+
+  // Disable background scroll when any modal is open
+  useEffect(() => {
+    if (
+      showCreateProjectModal ||
+      showCreatePlaygroundModal ||
+      showCreateCertificateModal ||
+      showCreateExperienceModal
+    ) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [
+    showCreateProjectModal,
+    showCreatePlaygroundModal,
+    showCreateCertificateModal,
+    showCreateExperienceModal,
+  ]);
 
   const reloadUser = () => {
     const savedUser = localStorage.getItem("user");

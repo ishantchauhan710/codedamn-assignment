@@ -58,7 +58,8 @@ const PortfolioTab = () => {
             {selectedPlaygrounds.includes(playground.title + index) && (
               <div className="absolute bg-transparent border-[5px] border-primary w-4 h-4 rounded-full right-0 mr-0 md:mr-3 mt-1" />
             )}
-            <Image
+                <Image
+        quality={100}
               src={getLogoFromLanguage(playground.language)}
               width={40}
               height={40}
@@ -78,7 +79,8 @@ const PortfolioTab = () => {
                     key={user.name}
                     className="border-1 border-white w-6 h-6 rounded-full overflow-hidden ml-[-6px]"
                   >
-                    <Image
+                        <Image
+        quality={100}
                       src={user.pic}
                       width={40}
                       height={40}
@@ -132,7 +134,8 @@ const PortfolioTab = () => {
                 height: "250px",
               }}
             >
-              <Image
+                  <Image
+        quality={100}
                 fill
                 src={project.image}
                 alt={project.title}
@@ -147,7 +150,8 @@ const PortfolioTab = () => {
             <div className="flex mt-1">
               {project.skills.map((skill) => (
                 <div key={skill} className="flex">
-                  <Image
+                      <Image
+        quality={100}
                     src={getLogoFromLanguage(skill)}
                     width={20}
                     height={20}
@@ -168,7 +172,8 @@ const PortfolioTab = () => {
                   key={user + user}
                   className="border-1 border-white w-6 h-6 rounded-full overflow-hidden ml-[-6px]"
                 >
-                  <Image
+                      <Image
+        quality={100}
                     src="/icons/avatars/dummyuser2.png"
                     width={40}
                     height={40}

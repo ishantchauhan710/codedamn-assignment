@@ -10,6 +10,7 @@ const Logo = () => {
   return (
     <div className="self-start mr-auto">
       <Image
+        quality={100}
         src="/icons/codedamn/codedamn_logo.png"
         width={125}
         height={32}
@@ -25,6 +26,7 @@ const SearchField = () => {
     <div className="ml-2 mr-6 hidden relative md:block">
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <Image
+          quality={100}
           src="/icons/app/search.png"
           width={16}
           height={16}
@@ -44,6 +46,7 @@ const SearchField = () => {
       >
         <span className="mr-1">Courses</span>
         <Image
+          quality={100}
           src="/icons/app/down.png"
           width={14}
           height={14}
@@ -66,7 +69,13 @@ const NavIcons = ({ user, router }: NavIconProps) => {
         className="flex items-center justify-between mx-2 cursor-pointer"
         onClick={() => alert("Spark")}
       >
-        <Image src="/icons/app/spark.png" width={20} height={20} alt="spark" />
+        <Image
+          quality={100}
+          src="/icons/app/spark.png"
+          width={20}
+          height={20}
+          alt="spark"
+        />
         <span className="font-semibold text-zinc-600 text-md ml-1 hover:text-zinc-900">
           2
         </span>
@@ -77,6 +86,7 @@ const NavIcons = ({ user, router }: NavIconProps) => {
         onClick={() => alert("Notifications")}
       >
         <Image
+          quality={100}
           src="/icons/app/notification.png"
           width={24}
           height={24}

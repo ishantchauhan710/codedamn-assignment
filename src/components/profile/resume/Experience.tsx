@@ -14,7 +14,8 @@ const Experience = () => {
           className="resume-section-body block sm:flex items-start mb-4"
         >
           <div className="mr-3 mb-1 sm:mb-0">
-            <Image
+                <Image
+        quality={100}
               src="/icons/social_media_platforms/Facebook.png"
               width={40}
               height={40}

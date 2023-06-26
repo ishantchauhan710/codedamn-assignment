@@ -14,7 +14,8 @@ const Languages = () => {
             key={language}
             className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
           >
-            <Image
+                <Image
+        quality={100}
               src="/icons/flags/china.png"
               width={20}
               height={20}

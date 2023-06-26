@@ -68,7 +68,8 @@ const ProfileHeaderData = () => {
         </div>
         <div className="text-md text-zinc-600 mt-3 md:mt-1">{user.about}</div>
         <div className="text-md text-zinc-600 mt-2 md:mt-0 flex items-center font-light">
-          <Image
+              <Image
+        quality={100}
             src="/icons/app/location.png"
             width={16}
             height={16}
@@ -97,7 +98,8 @@ const ProfileHeaderData = () => {
                 key={social.link}
                 className="border border-neutral-200  hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-md"
               >
-                <Image
+                    <Image
+        quality={100}
                   src={social.logo}
                   width={20}
                   height={20}
@@ -111,7 +113,8 @@ const ProfileHeaderData = () => {
               onClick={() => alert("Copy Profile")}
               className="bg-zinc-100 mr-2 hover:bg-neutral-200/60 cursor-pointer p-2 text-sm rounded-sm"
             >
-              <Image
+                  <Image
+        quality={100}
                 src="/icons/app/copy_icon.png"
                 width={16}
                 height={16}

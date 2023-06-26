@@ -13,7 +13,8 @@ const Education = () => {
           className="resume-section-body block sm:flex items-start mb-4"
         >
           <div className="mr-3 mb-2">
-            <Image
+                <Image
+        quality={100}
               src="/images/harvard.png"
               width={40}
               height={40}

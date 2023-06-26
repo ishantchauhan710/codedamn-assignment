@@ -45,7 +45,7 @@ const CreatePlaygroundModal = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-black/70 w-full h-full z-[21] flex items-center justify-center">
-      <div className="bg-white rounded-md w-4/5 shadow-md">
+      <div className="bg-white rounded-md  w-11/12 md:w-4/5  shadow-md">
         <div className="flex items-center justify-between p-4">
           <div className="text-zinc-800 font-bold text-2xl">
             Create Playground

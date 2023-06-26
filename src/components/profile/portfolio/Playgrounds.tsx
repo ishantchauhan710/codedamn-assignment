@@ -22,7 +22,8 @@ const Playgrounds = () => {
             key={playground.title}
             className="bg-zinc-100 text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-start flex-col sm:flex-row"
           >
-            <Image
+                <Image
+        quality={100}
               src={getLogoFromLanguage(playground.language)}
               width={40}
               height={40}
@@ -42,7 +43,8 @@ const Playgrounds = () => {
                     key={user.name}
                     className="border-1 border-white w-6 h-6 rounded-full overflow-hidden ml-[-6px]"
                   >
-                    <Image
+                        <Image
+        quality={100}
                       src={user.pic}
                       width={40}
                       height={40}
