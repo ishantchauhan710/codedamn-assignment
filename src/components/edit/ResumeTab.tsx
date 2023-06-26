@@ -2,14 +2,24 @@ import { useAppContext } from "context/AppContext";
 import Image from "next/image";
 import React, { useState } from "react";
 import CreateExperienceModal from "../common/modals/CreateExperienceModal";
-import { ResumeExperience } from "models/User";
+import { ResumeEducation, ResumeExperience } from "models/User";
+import CreateEducationModal from "../common/modals/CreateEducationModal";
 
 const ResumeTab = () => {
-  const { user, showCreateExperienceModal, setShowCreateExperienceModal } =
-    useAppContext();
+  const {
+    user,
+    showCreateExperienceModal,
+    setShowCreateExperienceModal,
+    showCreateEducationModal,
+    setShowCreateEducationModal,
+  } = useAppContext();
 
   const [experience, setExperience] = useState<ResumeExperience[]>(
     user.resume.experience
+  );
+
+  const [education, setEducation] = useState<ResumeEducation[]>(
+    user.resume.education
   );
 
   return (
@@ -115,10 +125,65 @@ const ResumeTab = () => {
           </div>
         ))}
       </div>
+
+      <div className="flex items-end justify-between mt-6">
+        <div className="text-zinc-900 font-bold text-2xl">Education</div>
+        <div
+          className="text-primary-500 cursor-pointer"
+          onClick={() => setShowCreateEducationModal(true)}
+        >
+          Add education +
+        </div>
+      </div>
+
+      <div className="mt-4">
+        {education.map((edu) => (
+          <div
+            key={edu.schoolName}
+            className="resume-section-body block sm:flex items-start mb-4"
+          >
+            <div className="mr-3 mb-2">
+              <Image
+                quality={100}
+                src="/images/harvard.png"
+                width={40}
+                height={40}
+                alt={edu.schoolName}
+              />
+            </div>
+            <div className="flex-1 flex flex-col items-start">
+              <div className="font-medium text-zinc-800 text-lg">
+                {edu.schoolName}
+              </div>
+              <div className="block sm:flex items-center justify-between w-full">
+                <div className="text-zinc-700 text-sm">
+                  {edu.schoolLocation}
+                  {edu.certification && `• ${edu.certification}`}
+                </div>
+                <div className="text-zinc-700 text-sm font-semibold">
+                  {edu.duration}
+                </div>
+              </div>
+              {edu.description && (
+                <div className="text-zinc-600 text-sm mt-4">
+                  {edu.description}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
       {showCreateExperienceModal && (
         <CreateExperienceModal
           experience={experience}
           setExperience={setExperience}
+        />
+      )}
+      {showCreateEducationModal && (
+        <CreateEducationModal
+          education={education}
+          setEducation={setEducation}
         />
       )}
     </div>

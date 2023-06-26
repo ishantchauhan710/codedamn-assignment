@@ -24,6 +24,8 @@ type AppContextType = {
   setShowCreateCertificateModal: React.Dispatch<React.SetStateAction<boolean>>;
   showCreateExperienceModal: boolean;
   setShowCreateExperienceModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showCreateEducationModal: boolean;
+  setShowCreateEducationModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -42,6 +44,9 @@ export default function AppStore(props: PropsWithChildren) {
   const [showCreateExperienceModal, setShowCreateExperienceModal] =
     useState(false);
 
+  const [showCreateEducationModal, setShowCreateEducationModal] =
+    useState(false);
+
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
@@ -58,7 +63,8 @@ export default function AppStore(props: PropsWithChildren) {
       showCreateProjectModal ||
       showCreatePlaygroundModal ||
       showCreateCertificateModal ||
-      showCreateExperienceModal
+      showCreateExperienceModal ||
+      showCreateEducationModal
     ) {
       document.body.style.overflow = "hidden";
     } else {
@@ -69,6 +75,7 @@ export default function AppStore(props: PropsWithChildren) {
     showCreatePlaygroundModal,
     showCreateCertificateModal,
     showCreateExperienceModal,
+    showCreateEducationModal,
   ]);
 
   const reloadUser = () => {
@@ -97,6 +104,8 @@ export default function AppStore(props: PropsWithChildren) {
         setShowCreateCertificateModal,
         showCreateExperienceModal,
         setShowCreateExperienceModal,
+        showCreateEducationModal,
+        setShowCreateEducationModal,
       }}
     >
       {props.children}
