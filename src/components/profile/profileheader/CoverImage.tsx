@@ -30,8 +30,8 @@ const CoverImage = () => {
   return (
     <div className="relative bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 h-44 rounded-t-xl">
       {user.coverPic && (
-            <Image
-        quality={100}
+        <Image
+          quality={100}
           src={user.coverPic}
           alt="cover"
           style={{ objectFit: "cover" }}
@@ -58,8 +58,8 @@ const CoverImage = () => {
         }}
         className="flex items-center justify-center text-white bg-black/70 hover:bg-black/80 p-2 border border-gray-300 rounded-lg absolute right-0 m-4"
       >
-            <Image
-        quality={100}
+        <Image
+          quality={100}
           src="/icons/app/edit_profile_icon.png"
           width={16}
           height={16}

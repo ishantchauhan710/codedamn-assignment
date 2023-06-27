@@ -14,6 +14,7 @@ const PortfolioTab = () => {
       const filteredPlaygrounds = selectedPlaygrounds.filter(
         (item) => item !== key
       );
+
       setSelectedPlaygrounds(filteredPlaygrounds);
     } else {
       setSelectedPlaygrounds([...selectedPlaygrounds, key]);

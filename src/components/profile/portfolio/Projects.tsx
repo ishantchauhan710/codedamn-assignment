@@ -30,8 +30,8 @@ const Projects = () => {
                 height: "250px",
               }}
             >
-                  <Image
-        quality={100}
+              <Image
+                quality={100}
                 fill
                 src={project.image}
                 alt={project.title}
@@ -46,8 +46,8 @@ const Projects = () => {
             <div className="flex mt-1">
               {project.skills.map((skill) => (
                 <div key={skill} className="flex">
-                      <Image
-        quality={100}
+                  <Image
+                    quality={100}
                     src={getLogoFromLanguage(skill)}
                     width={20}
                     height={20}

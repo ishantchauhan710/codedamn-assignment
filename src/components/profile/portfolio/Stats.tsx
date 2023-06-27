@@ -37,8 +37,13 @@ const Stats = () => {
             key={stat.label + stat.value}
             className="bg-zinc-100  text-zinc-700 cursor-pointer p-2 text-sm rounded-md mr-2 flex items-center"
           >
-                <Image
-        quality={100} src={stat.icon} width={32} height={32} alt={stat.label} />
+            <Image
+              quality={100}
+              src={stat.icon}
+              width={32}
+              height={32}
+              alt={stat.label}
+            />
             <div className="flex flex-col ml-1">
               <div className="text-zinc-700 font-bold text-lg">
                 {stat.value}

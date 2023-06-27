@@ -28,8 +28,8 @@ const ProfileImage = ({
         style={{ width: width, height: height }}
         className={`relative rounded-full overflow-hidden bg-gray-300 border-[4px] border-white ${className}`}
       >
-            <Image
-        quality={100}
+        <Image
+          quality={100}
           src={src ? src : "/icons/avatars/no_avatar.jpg"}
           alt={alt}
           style={{ objectFit: "cover" }}
@@ -50,12 +50,12 @@ const ProfileImage = ({
           } ${
             width > 60 && badgePosition === "top"
               ? "mt-[-20px] mr-[-18px]"
-              : "mt-[-13px] mr-[-14px]"
+              : "mt-[-12px] mr-[-13px]"
           } `}
         >
           <div className="relative flex items-center justify-center">
-                <Image
-        quality={100}
+            <Image
+              quality={100}
               src="/icons/app/profile_badge.png"
               alt="profile badge"
               width={width > 60 ? 80 : 45}

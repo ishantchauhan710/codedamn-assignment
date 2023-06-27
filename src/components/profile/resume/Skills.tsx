@@ -15,8 +15,8 @@ const Skills = () => {
             key={skill}
             className="bg-zinc-100 cursor-pointer p-2 text-sm rounded-sm flex items-center"
           >
-                <Image
-        quality={100}
+            <Image
+              quality={100}
               src={getLogoFromLanguage(skill)}
               width={20}
               height={20}

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ProfileImage from "../util/ProfilePicture";
 import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
-import { redirect } from "next/navigation";
 import { NextRouter, Router, useRouter } from "next/router";
 
 const Logo = () => {
@@ -22,36 +21,60 @@ const Logo = () => {
 };
 
 const SearchField = () => {
+  const courses = ["React", "Spring Boot", "Rust", "Android"];
+  const [showCourseDropdown, setShowCourseDropdown] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
   return (
-    <div className="ml-2 mr-6 hidden relative md:block">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <Image
-          quality={100}
-          src="/icons/app/search.png"
-          width={16}
-          height={16}
-          alt="search codedamn"
+    <div className="relative">
+      <div className="ml-2 mr-6 hidden relative md:block">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <Image
+            quality={100}
+            src="/icons/app/search.png"
+            width={16}
+            height={16}
+            alt="search codedamn"
+          />
+        </div>
+        <input
+          type="text"
+          className="block w-80 py-[6px] pl-10 pr-20 text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+          placeholder="Search"
+          required
         />
+        <div
+          className="flex items-center justify-center bg-zinc-200 hover:bg-gray-300/70 text-zinc-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
+          onClick={() => setShowCourseDropdown(!showCourseDropdown)}
+        >
+          <span className="mr-1">
+            {selectedCourse ? selectedCourse : "Courses"}
+          </span>
+          <Image
+            quality={100}
+            src="/icons/app/down.png"
+            width={14}
+            height={14}
+            alt="search codedamn"
+          />
+        </div>
       </div>
-      <input
-        type="text"
-        id="default-search"
-        className="block w-80 py-[6px] pl-10 pr-20 text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
-        placeholder="Search"
-        required
-      />
       <div
-        className="flex items-center justify-center bg-zinc-200 hover:bg-gray-300/70 text-zinc-600 rounded-md absolute inset-y-0 right-0 px-2 mx-1 my-[4px] cursor-pointer text-sm"
-        onClick={() => alert("Courses")}
+        className={`${
+          showCourseDropdown ? "block" : "hidden"
+        } absolute w-80 text-zinc-800 rounded-sm bg-gray-100`}
       >
-        <span className="mr-1">Courses</span>
-        <Image
-          quality={100}
-          src="/icons/app/down.png"
-          width={14}
-          height={14}
-          alt="search codedamn"
-        />
+        {courses.map((course) => (
+          <div
+            className="p-3 text-lg hover:bg-gray-200 cursor-pointer"
+            key={course}
+            onClick={() => {
+              setSelectedCourse(course);
+              setShowCourseDropdown(false);
+            }}
+          >
+            {course}
+          </div>
+        ))}
       </div>
     </div>
   );
