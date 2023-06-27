@@ -30,8 +30,11 @@ export const DummyUser = {
     dribbble: "https://www.dribbble.com",
   },
   configuration: {
+    // Since there was no follower section provided in design file, I'm using this to toggle the project section
     showFollowers: true,
-    showXP: false,
+    // Since there was no XP section provided in design file, I'm using this to toggle the playground section
+    showXP: true,
+    // Since there was no achievement badges section provided in design file, I'm using this to toggle the certificate section
     showAchievementBadges: true,
   },
   stats: {

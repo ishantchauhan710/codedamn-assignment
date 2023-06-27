@@ -9,12 +9,18 @@ import Playgrounds from "./portfolio/Playgrounds";
 import Certificates from "./portfolio/Certificates";
 
 const Portfolio = () => {
+  const { user } = useAppContext();
   return (
     <div>
       <Stats />
-      <Projects />
-      <Playgrounds />
-      <Certificates />
+      {/* Since there was no follower section provided in design file, I'm using this to toggle the project section */}
+      {user.configuration.showFollowers && <Projects />}
+
+      {/* Since there was no XP section provided in design file, I'm using this to toggle the playground section */}
+      {user.configuration.showXP && <Playgrounds />}
+
+      {/* Since there was no achievement badges section provided in design file, I'm using this to toggle the certificate section */}
+      {user.configuration.showAchievementBadges && <Certificates />}
     </div>
   );
 };

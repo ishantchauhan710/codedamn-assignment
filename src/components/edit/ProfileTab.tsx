@@ -232,7 +232,8 @@ const ProfileTab = () => {
                 Followers and following
               </div>
               <div className="text-zinc-600 font-light text-sm">
-                Shows your followers and the users you follow on codedamn
+                Since there was no follower section provided in design file, I
+                am using this to toggle the project section of profile page
               </div>
             </div>
             <div>
@@ -253,7 +254,8 @@ const ProfileTab = () => {
             <div>
               <div className="text-zinc-900 font-semibold">XP</div>
               <div className="text-zinc-600 font-light text-sm">
-                Shows the XP you have earned
+                Since there was no XP section provided in design file, I am
+                using this to toggle the playgrounds section of profile page
               </div>
             </div>
             <div>
@@ -276,7 +278,8 @@ const ProfileTab = () => {
                 Achievement badges
               </div>
               <div className="text-zinc-600 font-light text-sm">
-                Shows your relative percentile and proficiency
+                Since there was no follower section provided in design file, I
+                am using this to toggle the certificate section of profile page
               </div>
             </div>
             <div>
