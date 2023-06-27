@@ -1,38 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](/public/screenshots/screen1.jpg)
 
-## Getting Started
+# **Codedamn Assessment**
 
-First, run the development server:
+This repository is my submission for codedamn assessment. It contains implementation of the following design:
+https://www.figma.com/file/TXLwYa51OaUfXRjO5AQvL0/Codedamn-Frontend-Assessment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## About :dart:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project contains UI implementation and functionality of all the features provided in the assesment document. They include:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Profile page with portfolio and resume section
+- Feature to add new projects, playgrounds and certificates in portfolio section
+- Change profile picture
+- Change cover image
+- Edit profile information and social links
+- Manage profile section visibility
+- Fully fledged resume builder where you can add experience, education, skills and many more things
+- 100% mobile responsive
+- Collected user data and images are saved in the local storage
+- DX friendly code (Linting and prettier formatting applied)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Demo
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can test this website using the link: https://codedamn-ishant.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📸 Screenshots :computer:
 
-## Learn More
+### Profile page with portfolio
 
-To learn more about Next.js, take a look at the following resources:
+![](/public/screenshots/a.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Profile page with resume
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](/public/screenshots/b.png)
 
-## Deploy on Vercel
+### Edit profile page with portfolio tab
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![](/public/screenshots/c.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Edit profile page with socials tab
+
+![](/public/screenshots/d.png)
+
+### Edit profile page with portfolio tab
+
+![](/public/screenshots/e.png)
+
+### Edit profile page with resume tab
+
+![](/public/screenshots/f.png)
+
+## 📸 Screenshots :iphone:
+
+|                                             |                                             |                                             |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| ![](public/screenshots/mobile/screen1.jpg)  | ![](public/screenshots/mobile/screen2.jpg)  | ![](public/screenshots/mobile/screen3.jpg)  |
+| ![](public/screenshots/mobile/screen4.jpg)  | ![](public/screenshots/mobile/screen5.jpg)  | ![](public/screenshots/mobile/screen6.jpg)  |
+| ![](public/screenshots/mobile/screen7.jpg)  | ![](public/screenshots/mobile/screen8.jpg)  | ![](public/screenshots/mobile/screen9.jpg)  |
+| ![](public/screenshots/mobile/screen10.jpg) | ![](public/screenshots/mobile/screen11.jpg) | ![](public/screenshots/mobile/screen12.jpg) |
+| ![](public/screenshots/mobile/screen13.jpg) | ![](public/screenshots/mobile/screen14.jpg) | ![](public/screenshots/mobile/screen15.jpg) |
+| ![](public/screenshots/mobile/screen16.jpg) | ![](public/screenshots/mobile/screen17.jpg) | ![](public/screenshots/mobile/screen18.jpg) |
+
+## Contact
+
+For any queries, you can mail me at developerishant710@gmail.com
