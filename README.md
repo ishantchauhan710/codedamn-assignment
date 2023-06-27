@@ -24,6 +24,9 @@ This project contains UI implementation and functionality of all the features pr
 
 You can test this website using the link: https://codedamn-ishant.vercel.app/
 
+## Project Structure
+![](/public/dependency-graph.svg)
+
 ## 📸 Screenshots :computer:
 
 ### Profile page with portfolio
