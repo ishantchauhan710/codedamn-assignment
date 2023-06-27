@@ -148,7 +148,6 @@ const CreateExperienceModal = ({
             <div className="mt-2 relative ">
               <input
                 type="text"
-                id="default-search"
                 className="block p-2 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                 value={responsibility}
                 placeholder="What all responsibilites you had in your company?"

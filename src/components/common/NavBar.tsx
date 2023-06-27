@@ -5,9 +5,16 @@ import { useAppContext } from "context/AppContext";
 import { User } from "models/User";
 import { NextRouter, Router, useRouter } from "next/router";
 
-const Logo = () => {
+interface LogoProps {
+  router: NextRouter;
+}
+
+const Logo = ({ router }: LogoProps) => {
   return (
-    <div className="self-start mr-auto">
+    <div
+      className="self-start mr-auto cursor-pointer"
+      onClick={() => router.push("/")}
+    >
       <Image
         quality={100}
         src="/icons/codedamn/codedamn_logo.png"
@@ -144,7 +151,7 @@ const NavBar = () => {
 
   return (
     <div className="flex items-center justify-end px-5 py-4 fixed top-0 w-screen z-[20] bg-white shadow-md">
-      <Logo />
+      <Logo router={router} />
       <SearchField />
       <NavIcons user={user} router={router} />
     </div>

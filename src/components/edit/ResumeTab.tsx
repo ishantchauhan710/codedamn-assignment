@@ -256,7 +256,6 @@ const ResumeTab = () => {
         <div className="mt-2 relative ">
           <input
             type="text"
-            id="default-search"
             className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
             placeholder="Eg. Kotlin"
             value={skill}
@@ -308,7 +307,6 @@ const ResumeTab = () => {
         <div className="mt-2 relative ">
           <input
             type="text"
-            id="default-search"
             className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
             placeholder="Eg.TedTalks"
             value={interest}
@@ -352,7 +350,6 @@ const ResumeTab = () => {
         <div className="mt-2 relative ">
           <input
             type="text"
-            id="default-search"
             className="block p-3 w-full text-md text-zinc-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
             placeholder="Eg. English"
             value={language}
